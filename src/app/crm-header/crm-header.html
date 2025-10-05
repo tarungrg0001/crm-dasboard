@@ -1,0 +1,30 @@
+<header class="header-container">
+  <div class="header-logo">
+    <img src="logo.svg" alt="logo" />
+  </div>
+  <div class="header-search">
+    @if(true){
+    <div class="search-icon">
+      <fa-icon [icon]="searchIcon" />
+      <div class="placeholder">Search</div>
+    </div>
+    } @else {
+    <input type="text" class="search-input" />
+    }
+  </div>
+  <div class="header-options">
+    <div class="help-option">
+      <a href="javascript:void()" class="help-link">Help centre</a>
+      <fa-icon [icon]="helpIcon" class="fa-lg" />
+    </div>
+    <div class="users-option">
+      <div class="user-pic">
+        <fa-icon [icon]="userIcon" class="fa-user-icon" />
+      </div>
+      <div class="user-name-email">
+        <div class="name">Tarun Garg</div>
+        <div class="email">tarun@fake.com</div>
+      </div>
+    </div>
+  </div>
+</header>
