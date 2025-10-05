@@ -62,7 +62,7 @@
 .help-option {
   display: flex;
   align-items: center;
-
+  color: #333333;
   .help-link {
     font-size: 12px;
     margin-right: 6px;
@@ -76,6 +76,7 @@
 
   .fa-user-icon {
     font-size: 42px;
+    color: #737373;
   }
 
   .user-name-email {

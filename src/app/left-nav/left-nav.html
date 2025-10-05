@@ -1,0 +1,33 @@
+<div class="left-nav">
+  <div id="user-links">
+    <div class="nav-header">
+      <h4>Navigation</h4>
+      <fa-icon [icon]="angleIcon"></fa-icon>
+    </div>
+    <nav class="navbar">
+      @for(link of userUrls; track link.id){
+      <div class="nav-link" [routerLink]="link.url" routerLinkActive="active-link">
+        <fa-icon [icon]="link.icon"></fa-icon>
+        <a>
+          {{ link.label }}
+        </a>
+      </div>
+      }
+    </nav>
+  </div>
+  <div id="admin-links">
+    <div class="nav-header">
+      <h4>Admin</h4>
+    </div>
+    <nav class="navbar admin-navbar">
+      @for(link of adminUrls; track link.id){
+      <div class="nav-link" [routerLink]="link.url" routerLinkActive="active-link">
+        <fa-icon [icon]="link.icon"></fa-icon>
+        <a>
+          {{ link.label }}
+        </a>
+      </div>
+      }
+    </nav>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faMagnifyingGlass,
@@ -12,10 +12,8 @@ import {
   templateUrl: 'crm-header.html',
   styleUrls: ['crm-header.scss'],
 })
-export class CrmHeader implements OnInit {
+export class CrmHeader {
   public searchIcon = faMagnifyingGlass;
   public helpIcon = faQuestionCircle;
   public userIcon = faUserCircle;
-
-  public ngOnInit(): void {}
 }
