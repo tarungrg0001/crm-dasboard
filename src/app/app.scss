@@ -1,0 +1,10 @@
+.body {
+  display: flex;
+}
+crm-left-nav {
+  width: 260px;
+
+  &.nav-collapsed {
+    width: 82px;
+  }
+}
