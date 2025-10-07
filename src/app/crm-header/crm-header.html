@@ -2,14 +2,14 @@
   <div class="header-logo">
     <img src="logo.svg" alt="logo" />
   </div>
-  <div class="header-search">
-    @if(true){
+  <div class="header-search" (click)="activateInput()">
+    @if(!isActive){
     <div class="search-icon">
       <fa-icon [icon]="searchIcon" />
       <div class="placeholder">Search</div>
     </div>
     } @else {
-    <input type="text" class="search-input" />
+    <input #input type="text" class="search-input" (blur)="deactivateInput()" />
     }
   </div>
   <div class="header-options">
