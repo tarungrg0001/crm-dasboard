@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faAngleDoubleLeft,
+  faAngleDoubleRight,
   faBell,
   faBuilding,
   faChartBar,
@@ -19,7 +20,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   imports: [FontAwesomeModule, RouterLink, RouterLinkActive],
 })
 export class LeftNav {
-  public angleIcon = faAngleDoubleLeft;
+  @Output() isNavCollpased: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  public leftAngleIcon = faAngleDoubleLeft;
+  public rightAngleIcon = faAngleDoubleRight;
+
+  public isNavExpanded: boolean = true;
 
   public userUrls = [
     {
@@ -64,4 +70,10 @@ export class LeftNav {
     { id: 1, icon: faBell, label: 'Notification', url: '/notifications' },
     { id: 2, icon: faGear, label: 'Settings', url: '/settings' },
   ];
+
+  public changeNavState() {
+    this.isNavExpanded = !this.isNavExpanded;
+    const navCollpased = !this.isNavExpanded;
+    this.isNavCollpased.emit(navCollpased);
+  }
 }

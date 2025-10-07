@@ -1,31 +1,44 @@
 <div class="left-nav">
   <div id="user-links">
     <div class="nav-header">
+      @if(isNavExpanded){
       <h4>Navigation</h4>
-      <fa-icon [icon]="angleIcon"></fa-icon>
+      } @if(isNavExpanded){
+
+      <fa-icon [icon]="leftAngleIcon" (click)="changeNavState()" class="collapse-icon"></fa-icon>
+      }@else{
+
+      <fa-icon [icon]="rightAngleIcon" (click)="changeNavState()" class="collapse-icon"></fa-icon>
+      }
     </div>
     <nav class="navbar">
       @for(link of userUrls; track link.id){
       <div class="nav-link" [routerLink]="link.url" routerLinkActive="active-link">
         <fa-icon [icon]="link.icon"></fa-icon>
+        @if(isNavExpanded){
         <a>
           {{ link.label }}
         </a>
+        }
       </div>
       }
     </nav>
   </div>
   <div id="admin-links">
     <div class="nav-header">
+      @if(isNavExpanded){
       <h4>Admin</h4>
+      }
     </div>
     <nav class="navbar admin-navbar">
       @for(link of adminUrls; track link.id){
       <div class="nav-link" [routerLink]="link.url" routerLinkActive="active-link">
         <fa-icon [icon]="link.icon"></fa-icon>
+        @if(isNavExpanded){
         <a>
           {{ link.label }}
         </a>
+        }
       </div>
       }
     </nav>
