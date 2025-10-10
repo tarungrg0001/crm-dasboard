@@ -2,12 +2,15 @@
   display: flex;
   flex: 1;
 }
-crm-left-nav {
+
+.left-nav {
   width: 260px;
   border-right: 1px solid #e3e8ee;
+  transition: all 0.25s ease-in;
 
   &.nav-collapsed {
     width: 82px;
+    transition: all 0.25s ease-in;
   }
 }
 
@@ -15,4 +18,8 @@ crm-left-nav {
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+.main-content {
+  flex: 1;
 }

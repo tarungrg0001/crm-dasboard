@@ -1,4 +1,60 @@
-.container {
-  background-color: aqua;
-  width: 100%;
+.dashboard-container {
+}
+
+.heading-container {
+  margin: 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 24px;
+  flex-direction: row;
+}
+.card {
+  border-radius: 16px;
+  background-color: #272523;
+  height: 120px;
+  width: 270px;
+  padding: 20px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 20px;
+  color: #ffffff;
+
+  h6 {
+    line-height: 14px;
+    font-size: 14px;
+  }
+
+  fa-icon {
+    height: 20px;
+  }
+}
+
+.card-body p {
+  font-size: 32px;
+  color: #ffffff;
+  line-height: 40p;
+}
+
+.card-footer {
+  font-size: 10px;
+  color: #ffffff;
+
+  .precent {
+    color: #cbf4c9;
+  }
 }
