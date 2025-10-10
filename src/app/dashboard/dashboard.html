@@ -1,1 +1,23 @@
-<div class="container"></div>
+<div class="dashboard-container">
+  <div class="heading-container">
+    <h2>Dashboard</h2>
+    <fa-icon [icon]="refreshIcon"></fa-icon>
+  </div>
+  <div class="card-container">
+    @for(data of cardData; track data.id){
+    <div class="card">
+      <div class="card-header">
+        <h6>{{ data.header.label }}</h6>
+        <fa-icon [icon]="data.header.icon" size="xs"></fa-icon>
+      </div>
+      <div class="card-body">
+        <p>{{ data.content }}</p>
+      </div>
+      <div class="card-footer">
+        <span class="precent">{{ data.percent }}</span>
+        <span> vs last month</span>
+      </div>
+    </div>
+    }
+  </div>
+</div>

@@ -1,10 +1,11 @@
 <div class="page">
   <crm-header></crm-header>
   <div class="body">
-    <crm-left-nav
-      [ngClass]="{ 'nav-collapsed': isNavCollpased }"
-      (isNavCollpased)="navValue($event)"
-    ></crm-left-nav>
-    <router-outlet></router-outlet>
+    <div class="left-nav" [ngClass]="{ 'nav-collapsed': isNavCollpased }">
+      <crm-left-nav (isNavCollpased)="navValue($event)"></crm-left-nav>
+    </div>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
