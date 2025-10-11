@@ -1,6 +1,10 @@
 .left-nav {
+  height: 100%;
   max-width: 260px;
   padding: 21px 20px 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .nav-header {
@@ -48,4 +52,12 @@
 
 .collapse-icon {
   margin-left: 12px;
+  color: var(--color-neutral-500);
+}
+.theme-mode {
+  margin: 20px;
+}
+
+.mode-name {
+  color: var(--color-text-secondary);
 }

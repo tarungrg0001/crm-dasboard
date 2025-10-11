@@ -1,16 +1,17 @@
 .body {
   display: flex;
   flex: 1;
+  background-color: var(--color-surface);
 }
 
 .left-nav {
   width: 260px;
   border-right: 1px solid var(--color-border);
-  transition: all 0.25s ease-in;
+  transition: width 0.25s ease-in;
 
   &.nav-collapsed {
     width: 82px;
-    transition: all 0.25s ease-in;
+    transition: width 0.25s ease-in;
   }
 }
 
@@ -23,4 +24,9 @@
 .main-content {
   flex: 1;
   background-color: var(--color-surface);
+}
+
+crm-left-nav {
+  display: block;
+  height: 100%;
 }

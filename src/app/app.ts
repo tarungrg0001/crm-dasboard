@@ -13,8 +13,17 @@ import { CommonModule } from '@angular/common';
 export class App {
   public isNavCollpased: boolean = false;
   protected readonly title = signal('crm-dasboard');
+  public mode: string = 'light';
 
   public navValue(value: boolean) {
     this.isNavCollpased = value;
+  }
+
+  public changeTheme(mode: string) {
+    if (mode === 'dark') {
+      this.mode = 'dark';
+    } else {
+      this.mode = 'light';
+    }
   }
 }
