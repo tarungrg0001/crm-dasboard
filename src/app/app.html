@@ -1,8 +1,11 @@
-<div class="page">
+<div class="page" [attr.data-theme]="mode === 'dark' ? 'dark' : null">
   <crm-header></crm-header>
   <div class="body">
     <div class="left-nav" [ngClass]="{ 'nav-collapsed': isNavCollpased }">
-      <crm-left-nav (isNavCollpased)="navValue($event)"></crm-left-nav>
+      <crm-left-nav
+        (isNavCollpased)="navValue($event)"
+        (themeChangeEvent)="changeTheme($event)"
+      ></crm-left-nav>
     </div>
     <div class="main-content">
       <router-outlet></router-outlet>

@@ -21,10 +21,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 })
 export class LeftNav {
   @Output() isNavCollpased: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() themeChangeEvent: EventEmitter<string> = new EventEmitter<string>();
 
   public leftAngleIcon = faAngleDoubleLeft;
   public rightAngleIcon = faAngleDoubleRight;
-
+  public darkModeActive: boolean = false;
   public isNavExpanded: boolean = true;
 
   public userUrls = [
@@ -75,5 +76,10 @@ export class LeftNav {
     this.isNavExpanded = !this.isNavExpanded;
     const navCollpased = !this.isNavExpanded;
     this.isNavCollpased.emit(navCollpased);
+  }
+
+  public changeTheme() {
+    this.darkModeActive = !this.darkModeActive;
+    this.themeChangeEvent.emit(this.darkModeActive ? 'dark' : '');
   }
 }
