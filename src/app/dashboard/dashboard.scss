@@ -18,7 +18,7 @@ h2 {
 }
 .card {
   border-radius: 16px;
-  background-color: #272523;
+  background-color: var(--color-success-bg);
   height: 120px;
   width: 270px;
   padding: 20px;
@@ -29,7 +29,7 @@ h2 {
   justify-content: space-between;
   align-items: center;
   height: 20px;
-  color: #ffffff;
+  color: var(--color-text-primary);
 
   h6 {
     line-height: 14px;
@@ -43,20 +43,20 @@ h2 {
 
 .card-body p {
   font-size: 32px;
-  color: #ffffff;
+  color: var(--color-text-primary);
   line-height: 40p;
 }
 
 .card-footer {
   font-size: 10px;
-  color: #ffffff;
+  color: var(--color-text-primary);
 
   .precent {
-    color: #cbf4c9;
+    color: var(--color-primary-dark);
   }
 }
 
 hr {
   margin: 16px 24px;
-  color: #e3e8ee;
+  color: var(--color-border);
 }
