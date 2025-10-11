@@ -12,12 +12,13 @@ import {
   faUsers,
 } from '@fortawesome/free-solid-svg-icons';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'crm-left-nav',
   templateUrl: 'left-nav.html',
   styleUrls: ['left-nav.scss'],
-  imports: [FontAwesomeModule, RouterLink, RouterLinkActive],
+  imports: [FontAwesomeModule, RouterLink, RouterLinkActive, CommonModule],
 })
 export class LeftNav {
   @Output() isNavCollpased: EventEmitter<boolean> = new EventEmitter<boolean>();

@@ -55,9 +55,21 @@
   color: var(--color-neutral-500);
 }
 .theme-mode {
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 .mode-name {
   color: var(--color-text-secondary);
+}
+
+.label {
+  transition: all 0.2s ease-in;
+}
+.nav-collapsed {
+  .label {
+    opacity: 0;
+  }
+  .collapse-icon {
+    transform: translateX(-70px);
+  }
 }
