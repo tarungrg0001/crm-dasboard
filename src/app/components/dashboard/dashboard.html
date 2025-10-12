@@ -1,6 +1,6 @@
 <div class="dashboard-container">
   <div class="heading-container">
-    <h2>Dashboard</h2>
+    <h2>{{ dashboardContent.dashboard }}</h2>
     <fa-icon [icon]="refreshIcon"></fa-icon>
   </div>
   <div class="card-container">
@@ -15,7 +15,7 @@
       </div>
       <div class="card-footer">
         <span class="precent">{{ data.percent }}</span>
-        <span> vs last month</span>
+        <span> {{ dashboardContent.card.footer }}</span>
       </div>
     </div>
     }

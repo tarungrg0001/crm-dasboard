@@ -1,0 +1,27 @@
+{
+  "header": {
+    "search": "Suche",
+    "helpCentre": "Hilfezentrum"
+  },
+  "navBar": {
+    "navigation": "Navigation",
+    "navigationOptions": [
+      "Dashboard",
+      "Aufgaben",
+      "Benutzer",
+      "Standorte",
+      "Kennzahlen",
+      "Analytik"
+    ],
+    "admin": "Administrator",
+    "adminOptions": ["Benachrichtigungen", "Einstellungen"],
+    "darkMode": "Dunkelmodus"
+  },
+  "dashboard": {
+    "dashboard": "Dashboard",
+    "card": {
+      "headingOptions": ["Benutzer", "Aktive Standorte", "Aufgaben", "ESG-Kennzahlen"],
+      "footer": "im Vergleich zum letzten Monat"
+    }
+  }
+}

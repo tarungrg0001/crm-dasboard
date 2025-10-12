@@ -2,7 +2,7 @@
   <div>
     <div id="user-links">
       <div class="nav-header">
-        <h4 class="label">Navigation</h4>
+        <h4 class="label">{{ leftNavContent.navigation }}</h4>
         @if(isNavExpanded){
         <fa-icon [icon]="leftAngleIcon" (click)="changeNavState()" class="collapse-icon"></fa-icon>
         } @else{
@@ -23,7 +23,7 @@
     <div id="admin-links">
       <div class="nav-header">
         @if(isNavExpanded){
-        <h4>Admin</h4>
+        <h4>{{ leftNavContent.admin }}</h4>
         }
       </div>
       <nav class="navbar admin-navbar">
@@ -45,9 +45,9 @@
         class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-teal-300 dark:peer-focus:ring-teal-800 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-teal-600 dark:peer-checked:bg-teal-600"
       ></div>
       @if(isNavExpanded){
-      <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300 mode-name"
-        >Dark Mode</span
-      >
+      <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300 mode-name">{{
+        leftNavContent.darkMode
+      }}</span>
       }
     </label>
   </div>

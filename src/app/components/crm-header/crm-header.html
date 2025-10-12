@@ -6,7 +6,7 @@
     @if(!isActive){
     <div class="search-icon">
       <fa-icon [icon]="searchIcon" />
-      <div class="placeholder">Search</div>
+      <div class="placeholder">{{ headerContent?.search }}</div>
     </div>
     } @else {
     <input #input type="text" class="search-input" (blur)="deactivateInput()" />
@@ -14,8 +14,20 @@
   </div>
   <div class="header-options">
     <div class="help-option">
-      <a href="javascript:void()" class="help-link">Help centre</a>
+      <a href="javascript:void()" class="help-link">{{ headerContent?.helpCentre }}</a>
       <fa-icon [icon]="helpIcon" class="fa-lg" />
+    </div>
+    <div class="language-button">
+      <fa-icon [icon]="globeIcon" class="fa-lg" (click)="showLanguages()"></fa-icon>
+      @if(showOptions){
+      <div class="language-options">
+        @for(language of languagesPresent; track $index){
+        <div class="language-option" (click)="changeLanguage(language.code)">
+          {{ language.name }}
+        </div>
+        }
+      </div>
+      }
     </div>
     <div class="users-option">
       <div class="user-pic">
