@@ -5,6 +5,7 @@ import {
   faQuestionCircle,
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
+import { Resource } from '../../services/resource';
 
 @Component({
   selector: 'crm-header',
@@ -17,6 +18,11 @@ export class CrmHeader {
   public helpIcon = faQuestionCircle;
   public userIcon = faUserCircle;
   public isActive = false;
+  public headerContent: any;
+
+  constructor(private _resource: Resource) {
+    this.headerContent = this._resource.content().header;
+  }
 
   @ViewChild('input') input!: ElementRef<HTMLInputElement>;
 

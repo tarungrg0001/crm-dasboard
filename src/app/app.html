@@ -1,4 +1,5 @@
 <div class="page" [attr.data-theme]="mode === 'dark' ? 'dark' : null">
+  @if(resource && resource.content()){
   <crm-header></crm-header>
   <div class="body">
     <div class="left-nav" [ngClass]="{ 'nav-collapsed': isNavCollpased }">
@@ -11,4 +12,5 @@
       <router-outlet></router-outlet>
     </div>
   </div>
+  }
 </div>

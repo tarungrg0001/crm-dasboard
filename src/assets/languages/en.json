@@ -1,0 +1,20 @@
+{
+  "header": {
+    "search": "Search",
+    "helpCentre": "Help centre"
+  },
+  "navBar": {
+    "navigation": "Navigation",
+    "navigationOptions": ["Dashboard", "Assignments", "Users", "Sites", "Metrics", "Analytics"],
+    "admin": "Admin",
+    "adminOptions": ["Notifications", "Settings"],
+    "darkMode": "Dark Mode"
+  },
+  "dashboard": {
+    "dashboard": "Dashboard",
+    "card": {
+      "headingOptions": ["Users", "Active Sites", "Assignments", "ESG Metrics"],
+      "footer": "vs last month"
+    }
+  }
+}
