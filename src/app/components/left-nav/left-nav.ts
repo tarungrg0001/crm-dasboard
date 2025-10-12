@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, effect, EventEmitter, OnInit, Output } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faAngleDoubleLeft,
@@ -32,23 +32,26 @@ export class LeftNav implements OnInit {
   public isNavExpanded: boolean = true;
   public leftNavContent: any;
 
-  private readonly iconMapping: { [key: string]: any } = {
-    dashboard: faHome,
-    assignments: faCircleCheck,
-    users: faUsers,
-    sites: faBuilding,
-    metrics: faDashboard,
-    analytics: faChartBar,
-    notifications: faBell,
-    settings: faGear,
-  };
+  private readonly userIconMapping = [
+    faHome,
+    faCircleCheck,
+    faUsers,
+    faBuilding,
+    faDashboard,
+    faChartBar,
+  ];
+  private readonly adminIconMapping = [faBell, faGear];
   public userUrls: any[] = [];
 
   public adminUrls: any[] = [];
 
   constructor(private resource: Resource) {
-    this.leftNavContent = this.resource.content().navBar;
-    this.initiateUrls();
+    effect(() => {
+      this.leftNavContent = this.resource.content().navBar;
+      this.adminUrls = [];
+      this.userUrls = [];
+      this.initiateUrls();
+    });
   }
 
   public changeNavState(): void {
@@ -72,7 +75,7 @@ export class LeftNav implements OnInit {
     this.leftNavContent.navigationOptions.forEach((option: string, index: number) => {
       this.userUrls.push({
         id: index,
-        icon: this.iconMapping[option.toLowerCase()],
+        icon: this.userIconMapping[index],
         label: option,
         url: option.toLowerCase(),
       });
@@ -83,7 +86,7 @@ export class LeftNav implements OnInit {
     this.leftNavContent.adminOptions.forEach((option: string, index: number) => {
       this.adminUrls.push({
         id: index,
-        icon: this.iconMapping[option.toLowerCase()],
+        icon: this.adminIconMapping[index],
         label: option,
         url: option.toLowerCase(),
       });

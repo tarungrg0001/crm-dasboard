@@ -1,6 +1,7 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, computed, effect, ElementRef, ViewChild } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
+  faGlobe,
   faMagnifyingGlass,
   faQuestionCircle,
   faUserCircle,
@@ -17,11 +18,16 @@ export class CrmHeader {
   public searchIcon = faMagnifyingGlass;
   public helpIcon = faQuestionCircle;
   public userIcon = faUserCircle;
+  public globeIcon = faGlobe;
   public isActive = false;
   public headerContent: any;
 
   constructor(private _resource: Resource) {
-    this.headerContent = this._resource.content().header;
+    effect(() => {
+      if (this._resource.content()) {
+        this.headerContent = this._resource.content().header;
+      }
+    });
   }
 
   @ViewChild('input') input!: ElementRef<HTMLInputElement>;
@@ -35,5 +41,9 @@ export class CrmHeader {
     if (!this.input.nativeElement.value) {
       this.isActive = false;
     }
+  }
+
+  public changeLanguage() {
+    this._resource.getNewLanguageContent();
   }
 }

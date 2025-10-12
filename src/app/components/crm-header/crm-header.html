@@ -6,7 +6,7 @@
     @if(!isActive){
     <div class="search-icon">
       <fa-icon [icon]="searchIcon" />
-      <div class="placeholder">{{ headerContent.search }}</div>
+      <div class="placeholder">{{ headerContent?.search }}</div>
     </div>
     } @else {
     <input #input type="text" class="search-input" (blur)="deactivateInput()" />
@@ -14,8 +14,11 @@
   </div>
   <div class="header-options">
     <div class="help-option">
-      <a href="javascript:void()" class="help-link">{{ headerContent.helpCentre }}</a>
+      <a href="javascript:void()" class="help-link">{{ headerContent?.helpCentre }}</a>
       <fa-icon [icon]="helpIcon" class="fa-lg" />
+    </div>
+    <div class="language-button">
+      <fa-icon [icon]="globeIcon" class="fa-lg" (click)="changeLanguage()"></fa-icon>
     </div>
     <div class="users-option">
       <div class="user-pic">

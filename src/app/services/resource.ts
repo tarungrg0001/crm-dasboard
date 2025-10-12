@@ -15,4 +15,10 @@ export class Resource {
       this.contentSignal.set(data);
     });
   }
+
+  public getNewLanguageContent() {
+    this._http.get('assets/languages/de.json').subscribe((data) => {
+      this.contentSignal.set(data);
+    });
+  }
 }

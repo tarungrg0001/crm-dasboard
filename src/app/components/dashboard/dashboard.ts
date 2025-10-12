@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, effect, OnInit } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faBarChart,
@@ -20,35 +20,36 @@ export class Dashboard implements OnInit {
   public usersIcon = faUsers;
   public dashboardContent: any;
 
-  private readonly iconMapping: { [key: string]: any } = {
-    users: faUsers,
-    activesites: faBuilding,
-    assignments: faCircleCheck,
-    esgmetrics: faBarChart,
-  };
+  private readonly iconMapping = [faUsers, faBuilding, faCircleCheck, faBarChart];
 
-  private readonly data: { [ket: string]: any } = {
-    users: { content: 28, percent: '3.2%' },
-    activesites: { content: 92, percent: '3.2%' },
-    assignments: { content: 392, percent: '3.2%' },
-    esgmetrics: { content: 32, percent: '3.2%' },
-  };
+  private readonly data = [
+    { content: 28, percent: '3.2%' },
+    { content: 92, percent: '3.2%' },
+    { content: 392, percent: '3.2%' },
+    { content: 32, percent: '3.2%' },
+  ];
   public cardData: any[] = [];
 
   constructor(private _resource: Resource) {
-    this.dashboardContent = this._resource.content().dashboard;
+    effect(() => {
+      this.dashboardContent = this._resource.content().dashboard;
+      this.cardData = [];
+      this.initiateContent();
+    });
   }
 
-  public ngOnInit(): void {
+  public ngOnInit(): void {}
+
+  private initiateContent() {
     this.dashboardContent.card.headingOptions.forEach((option: string, index: number) => {
       this.cardData.push({
         id: index,
         header: {
           label: option,
-          icon: this.iconMapping[option.replaceAll(' ', '').toLowerCase()],
+          icon: this.iconMapping[index],
         },
-        content: this.data[option.replaceAll(' ', '').toLowerCase()].content,
-        percent: this.data[option.replaceAll(' ', '').toLowerCase()].percent,
+        content: this.data[index].content,
+        percent: this.data[index].percent,
       });
     });
   }
