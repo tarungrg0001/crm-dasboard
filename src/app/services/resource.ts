@@ -16,8 +16,8 @@ export class Resource {
     });
   }
 
-  public getNewLanguageContent() {
-    this._http.get('assets/languages/de.json').subscribe((data) => {
+  public getNewLanguageContent(langCode: string): void {
+    this._http.get(`assets/languages/${langCode}.json`).subscribe((data) => {
       this.contentSignal.set(data);
     });
   }

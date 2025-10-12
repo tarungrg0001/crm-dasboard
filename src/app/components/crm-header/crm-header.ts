@@ -21,6 +21,11 @@ export class CrmHeader {
   public globeIcon = faGlobe;
   public isActive = false;
   public headerContent: any;
+  public showOptions: boolean = false;
+  public languagesPresent = [
+    { name: 'English', code: 'en' },
+    { name: 'German', code: 'de' },
+  ];
 
   constructor(private _resource: Resource) {
     effect(() => {
@@ -43,7 +48,12 @@ export class CrmHeader {
     }
   }
 
-  public changeLanguage() {
-    this._resource.getNewLanguageContent();
+  public changeLanguage(langCode: string): void {
+    this._resource.getNewLanguageContent(langCode);
+    this.showOptions = false;
+  }
+
+  public showLanguages(): void {
+    this.showOptions = !this.showOptions;
   }
 }

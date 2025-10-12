@@ -18,7 +18,16 @@
       <fa-icon [icon]="helpIcon" class="fa-lg" />
     </div>
     <div class="language-button">
-      <fa-icon [icon]="globeIcon" class="fa-lg" (click)="changeLanguage()"></fa-icon>
+      <fa-icon [icon]="globeIcon" class="fa-lg" (click)="showLanguages()"></fa-icon>
+      @if(showOptions){
+      <div class="language-options">
+        @for(language of languagesPresent; track $index){
+        <div class="language-option" (click)="changeLanguage(language.code)">
+          {{ language.name }}
+        </div>
+        }
+      </div>
+      }
     </div>
     <div class="users-option">
       <div class="user-pic">
