@@ -16,5 +16,11 @@
       "headingOptions": ["Users", "Active Sites", "Assignments", "ESG Metrics"],
       "footer": "vs last month"
     }
+  },
+  "assignments": {
+    "assignments": "Assignments",
+    "export": "Export",
+    "createAssignment": "Create assignment",
+    "bulkAssignment": " Bulk assignment"
   }
 }
