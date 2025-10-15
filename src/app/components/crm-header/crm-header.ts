@@ -1,4 +1,4 @@
-import { Component, computed, effect, ElementRef, ViewChild } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faGlobe,
@@ -7,19 +7,19 @@ import {
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import { Resource } from '../../services/resource';
+import { Input } from '../../shared/input/input';
 
 @Component({
   selector: 'crm-header',
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule, Input],
   templateUrl: 'crm-header.html',
   styleUrls: ['crm-header.scss'],
 })
 export class CrmHeader {
-  public searchIcon = faMagnifyingGlass;
   public helpIcon = faQuestionCircle;
   public userIcon = faUserCircle;
+  public searchIcon = faMagnifyingGlass;
   public globeIcon = faGlobe;
-  public isActive = false;
   public headerContent: any;
   public showOptions: boolean = false;
   public languagesPresent = [
@@ -33,19 +33,6 @@ export class CrmHeader {
         this.headerContent = this._resource.content().header;
       }
     });
-  }
-
-  @ViewChild('input') input!: ElementRef<HTMLInputElement>;
-
-  public activateInput() {
-    this.isActive = true;
-    setTimeout(() => this.input.nativeElement.focus(), 0);
-  }
-
-  public deactivateInput() {
-    if (!this.input.nativeElement.value) {
-      this.isActive = false;
-    }
   }
 
   public changeLanguage(langCode: string): void {

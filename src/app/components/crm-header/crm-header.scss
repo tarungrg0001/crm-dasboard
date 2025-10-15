@@ -15,13 +15,6 @@
     }
   }
 
-  .header-search {
-    width: 504px;
-    height: 42px;
-    border-radius: 8px;
-    border: 1px solid var(--color-border);
-  }
-
   .header-options {
     height: 42px;
     display: flex;
@@ -29,36 +22,6 @@
     gap: 32px;
     margin-right: 24px;
   }
-}
-
-.search-icon {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: var(--color-text-secondary);
-  height: 42px;
-
-  fa-icon {
-    padding-left: 16px;
-  }
-
-  .placeholder {
-    font-size: 14px;
-    font-weight: 300;
-  }
-}
-
-.search-input {
-  height: 42px;
-  border: 0px;
-  width: 504px;
-  padding-left: 16px;
-}
-
-.search-input:focus-visible {
-  outline: none;
-  border: 1px solid var(--color-success-bg);
-  border-radius: 8px;
 }
 
 .help-option {

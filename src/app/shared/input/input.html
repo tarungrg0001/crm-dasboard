@@ -1,0 +1,15 @@
+<div class="header-search" (click)="activateInput()" [style.width]="width" [style.height]="height">
+  @if(!isActive){
+  <div class="search-icon">
+    @if(iconName()){
+
+    <fa-icon [icon]="iconName()" />
+    } @if(placeholder()){
+
+    <div class="placeholder">{{ placeholder() }}</div>
+    }
+  </div>
+  } @else {
+  <input #input type="text" class="search-input" (blur)="deactivateInput()" />
+  }
+</div>
