@@ -21,6 +21,7 @@
     "assignments": "Assignments",
     "export": "Export",
     "createAssignment": "Create assignment",
-    "bulkAssignment": " Bulk assignment"
+    "bulkAssignment": " Bulk assignment",
+    "search": "Search user, sites or metrics"
   }
 }

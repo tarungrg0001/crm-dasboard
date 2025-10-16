@@ -1,4 +1,8 @@
-<div class="header-search" (click)="activateInput()" [style.width]="width" [style.height]="height">
+<div
+  class="search"
+  (click)="activateInput()"
+  [ngStyle]="{ width: width(), height: height(), 'font-size': fontSize() }"
+>
   @if(!isActive){
   <div class="search-icon">
     @if(iconName()){

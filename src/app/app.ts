@@ -1,13 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { CrmHeader } from './components/crm-header/crm-header';
-import { LeftNav } from './components/left-nav/left-nav';
+import { CrmLeftNav } from './components/crm-left-nav/crm-left-nav';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Resource } from './services/resource';
 
 @Component({
   selector: 'app-root',
-  imports: [CrmHeader, LeftNav, RouterModule, CommonModule],
+  imports: [CrmHeader, CrmLeftNav, RouterModule, CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

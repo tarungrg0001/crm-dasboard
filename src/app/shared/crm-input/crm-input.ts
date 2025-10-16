@@ -1,20 +1,22 @@
+import { CommonModule } from '@angular/common';
 import { Component, ElementRef, input, ViewChild } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faMagnifyingGlass, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'crm-input',
-  templateUrl: 'input.html',
-  styleUrls: ['input.scss'],
-  imports: [FontAwesomeModule],
+  templateUrl: 'crm-input.html',
+  styleUrls: ['crm-input.scss'],
+  imports: [FontAwesomeModule, CommonModule],
 })
-export class Input {
+export class CrmInput {
   @ViewChild('input') input!: ElementRef<HTMLInputElement>;
 
   public placeholder = input<string>();
   public iconName = input<IconDefinition>();
-  public width = input<number>();
-  public height = input<number>();
+  public width = input<string>();
+  public height = input<string>();
+  public fontSize = input<string>();
 
   public isActive = false;
 

@@ -11,11 +11,11 @@ import { Resource } from '../../services/resource';
 
 @Component({
   selector: 'crm-dashboard',
-  templateUrl: 'dashboard.html',
-  styleUrls: ['dashboard.scss'],
+  templateUrl: 'crm-dashboard.html',
+  styleUrls: ['crm-dashboard.scss'],
   imports: [FontAwesomeModule],
 })
-export class Dashboard implements OnInit {
+export class CrmDashboard implements OnInit {
   public refreshIcon = faRefresh;
   public usersIcon = faUsers;
   public dashboardContent: any;
