@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
-import { Dashboard } from './components/dashboard/dashboard';
-import { Assignments } from './components/assignments/assignments';
+import { CrmDashboard } from './components/crm-dashboard/crm-dashboard';
+import { CrmAssignments } from './components/crm-assignments/crm-assignments';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
-  { path: 'dashboard', component: Dashboard },
-  { path: 'assignments', component: Assignments },
+  { path: 'dashboard', component: CrmDashboard },
+  { path: 'assignments', component: CrmAssignments },
 ];

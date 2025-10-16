@@ -1,0 +1,20 @@
+@if(iconName()){
+
+<fa-icon [icon]="iconName()" class="fa-lg" (click)="onClick()"></fa-icon>
+} @else {
+<button class="btn dropdown-btn" (click)="onClick()">
+  <fa-icon [icon]="buttonConfig()?.iconName"></fa-icon>
+  <span class="btn-label">
+    {{ buttonConfig()?.label }}
+  </span>
+  <fa-icon [icon]="downArrow"></fa-icon>
+</button>
+} @if(showOptions){
+<div class="options">
+  @for(option of options(); track $index){
+  <div class="option" (click)="optionClicked(option)">
+    {{ typeof option === 'object' ? option.name : option }}
+  </div>
+  }
+</div>
+}

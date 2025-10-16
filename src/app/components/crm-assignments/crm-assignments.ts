@@ -1,18 +1,20 @@
 import { Component, effect } from '@angular/core';
 import { Resource } from '../../services/resource';
-import { faPlus, faUpload } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faPlus, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CrmTable } from '../../shared/tables/crm-table/crm-table';
 
 @Component({
-  selector: 'app-assignments',
-  imports: [FontAwesomeModule],
-  templateUrl: './assignments.html',
-  styleUrl: './assignments.scss',
+  selector: 'crm-assignments',
+  imports: [FontAwesomeModule, CrmTable],
+  templateUrl: './crm-assignments.html',
+  styleUrl: './crm-assignments.scss',
 })
-export class Assignments {
+export class CrmAssignments {
   public assignmentContent: any;
   public uploadIcon = faUpload;
   public plusIcon = faPlus;
+  public searchIcon = faMagnifyingGlass;
 
   constructor(private _resource: Resource) {
     effect(() => {

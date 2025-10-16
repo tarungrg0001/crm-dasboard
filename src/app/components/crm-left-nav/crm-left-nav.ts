@@ -18,11 +18,11 @@ import { Resource } from '../../services/resource';
 
 @Component({
   selector: 'crm-left-nav',
-  templateUrl: 'left-nav.html',
-  styleUrls: ['left-nav.scss'],
+  templateUrl: 'crm-left-nav.html',
+  styleUrls: ['crm-left-nav.scss'],
   imports: [FontAwesomeModule, RouterLink, RouterLinkActive, CommonModule],
 })
-export class LeftNav implements OnInit {
+export class CrmLeftNav implements OnInit {
   @Output() isNavCollpased: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() themeChangeEvent: EventEmitter<string> = new EventEmitter<string>();
 
