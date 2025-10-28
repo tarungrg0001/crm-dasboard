@@ -15,6 +15,7 @@ import {
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Resource } from '../../services/resource';
+import * as Constants from '../../../assets/constants.json';
 
 @Component({
   selector: 'crm-left-nav',
@@ -77,7 +78,7 @@ export class CrmLeftNav implements OnInit {
         id: index,
         icon: this.userIconMapping[index],
         label: option,
-        url: option.toLowerCase(),
+        url: Constants.navigationOptions[index].toLowerCase(),
       });
     });
 
@@ -88,7 +89,7 @@ export class CrmLeftNav implements OnInit {
         id: index,
         icon: this.adminIconMapping[index],
         label: option,
-        url: option.toLowerCase(),
+        url: Constants.adminOptions[index].toLowerCase(),
       });
     });
   }

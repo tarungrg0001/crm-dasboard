@@ -1,12 +1,6 @@
 import { CommonModule, DatePipe } from '@angular/common';
 import { Component, effect, OnInit } from '@angular/core';
-import {
-  faArrowDownShortWide,
-  faFilter,
-  faMagnifyingGlass,
-  faPlus,
-  faUpload,
-} from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faPlus, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AgGridAngular } from 'ag-grid-angular';
 import {
@@ -34,11 +28,9 @@ ModuleRegistry.registerModules([AllCommunityModule]);
 export class CrmAssignments implements OnInit {
   public assignmentContent: any;
   public tableContent: any;
-  public uploadIcon = faUpload;
-  public plusIcon = faPlus;
-  public searchIcon = faMagnifyingGlass;
-  public readonly sortIcon = faArrowDownShortWide;
-  public readonly filterIcon = faFilter;
+  public readonly uploadIcon = faUpload;
+  public readonly plusIcon = faPlus;
+  public readonly searchIcon = faMagnifyingGlass;
   public searchConfig: any;
   public colDef!: ColDef[];
   public filterArray!: string[];
