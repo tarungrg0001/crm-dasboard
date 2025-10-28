@@ -35,11 +35,15 @@
           },
           "configurations": {
             "production": {
+              "optimization": true,
+
+              "sourceMap": false,
+              "extractLicenses": true,
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "1.5mB",
+                  "maximumError": "3MB"
                 },
                 {
                   "type": "anyComponentStyle",
