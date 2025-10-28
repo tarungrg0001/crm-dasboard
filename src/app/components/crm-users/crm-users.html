@@ -17,4 +17,26 @@
       </button>
     </div>
   </div>
+  <div class="assignment-table-container">
+    <div class="table-actions">
+      <div class="search">
+        <crm-input
+          [width]="searchConfig?.width"
+          [height]="searchConfig?.height"
+          [placeholder]="searchConfig?.placeholder"
+          [iconName]="searchConfig?.icon"
+          [fontSize]="searchConfig?.fontSize"
+          (valueEmitter)="searchValue($event)"
+        ></crm-input>
+      </div>
+    </div>
+    <ag-grid-angular
+      #myGrid
+      style="height: 550px"
+      [columnDefs]="colDef"
+      [rowData]="data"
+      [pagination]="true"
+      (gridReady)="onReady($event)"
+    ></ag-grid-angular>
+  </div>
 </div>

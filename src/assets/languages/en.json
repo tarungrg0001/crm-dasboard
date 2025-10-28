@@ -39,6 +39,17 @@
   "users": {
     "heading": "Users",
     "export": "Export",
-    "createUser": "Create new user"
+    "createUser": "Create new user",
+    "table": {
+      "headers": [
+        "User Id",
+        "Username",
+        "Email Id",
+        "Assignments",
+        "Sites Assigned",
+        "Metrics Assigned",
+        "Contact"
+      ]
+    }
   }
 }

@@ -1,5 +1,5 @@
 import { CommonModule, DatePipe } from '@angular/common';
-import { Component, effect, OnInit } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { faMagnifyingGlass, faPlus, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AgGridAngular } from 'ag-grid-angular';
@@ -25,7 +25,7 @@ ModuleRegistry.registerModules([AllCommunityModule]);
   templateUrl: './crm-assignments.html',
   styleUrl: './crm-assignments.scss',
 })
-export class CrmAssignments implements OnInit {
+export class CrmAssignments {
   public assignmentContent: any;
   public tableContent: any;
   public readonly uploadIcon = faUpload;
@@ -71,8 +71,6 @@ export class CrmAssignments implements OnInit {
       this.filterArray = this.tableContent.headers.splice(-1, 1);
     });
   }
-
-  public ngOnInit(): void {}
 
   private defineColumns() {
     this.colDef = [
