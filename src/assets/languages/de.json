@@ -23,5 +23,26 @@
       "headingOptions": ["Benutzer", "Aktive Standorte", "Aufgaben", "ESG-Kennzahlen"],
       "footer": "im Vergleich zum letzten Monat"
     }
+  },
+  "assignments": {
+    "assignments": "Zuweisungen",
+    "export": "Exportieren",
+    "createAssignment": "Zuweisung erstellen",
+    "bulkAssignment": "Massen-Zuweisung",
+    "search": "Benutzer, Standorte oder Kennzahlen suchen",
+    "table": {
+      "sortby": "Sortieren nach",
+      "all": "Alle",
+      "headers": [
+        "Zuweisungs-ID",
+        "Zugewiesen an",
+        "Kennzahl",
+        "Standort",
+        "Status",
+        "Zuweisungsdatum",
+        "Fälligkeitsdatum",
+        "Aktion"
+      ]
+    }
   }
 }

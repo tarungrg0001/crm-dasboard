@@ -21,7 +21,6 @@ import { Resource } from '../../services/resource';
 import { CrmBadge } from '../../shared/crm-badge/crm-badge';
 import { CrmActionRenderer } from '../../shared/tables/crm-action-renderer/crm-action-renderer';
 import { CrmInput } from '../../shared/crm-input/crm-input';
-import { CrmDropdown } from '../../shared/crm-dropdown/crm-dropdown';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -50,8 +49,8 @@ export class CrmAssignments implements OnInit {
       metric: 'M1',
       site: 'S1',
       status: 'not-started',
-      assignedDate: new Date(),
-      dueDate: new Date(),
+      assignedDate: `2025-10-30`,
+      dueDate: `2025-11-05`,
     },
     {
       assignmentId: 2,
@@ -59,8 +58,8 @@ export class CrmAssignments implements OnInit {
       metric: 'M1',
       site: 'S1',
       status: 'completed',
-      assignedDate: new Date('05-29-2025'),
-      dueDate: new Date(),
+      assignedDate: '2025-10-29',
+      dueDate: '2025-05-10',
     },
   ];
 
@@ -113,7 +112,7 @@ export class CrmAssignments implements OnInit {
         valueFormatter: (params): string => {
           return this._datePipe.transform(params.value, 'dd/MM/yyyy') ?? '';
         },
-        filter: 'agDateColumnFilter',
+        filter: true,
       },
       {
         field: 'dueDate',
@@ -121,7 +120,7 @@ export class CrmAssignments implements OnInit {
         valueFormatter: (params): string => {
           return this._datePipe.transform(params.value, 'dd/MM/yyyy') ?? '';
         },
-        filter: 'agDateColumnFilter',
+        filter: true,
       },
       {
         field: 'Action',
@@ -135,5 +134,9 @@ export class CrmAssignments implements OnInit {
   public onReady(event: GridReadyEvent): void {
     this.myGridApi = event.api;
     this.myGridApi.sizeColumnsToFit();
+  }
+
+  public searchValue(value: string): void {
+    this.myGridApi.setGridOption('quickFilterText', value);
   }
 }
