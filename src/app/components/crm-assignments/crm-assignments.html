@@ -32,6 +32,7 @@
           [placeholder]="searchConfig?.placeholder"
           [iconName]="searchConfig?.icon"
           [fontSize]="searchConfig?.fontSize"
+          (valueEmitter)="searchValue($event)"
         ></crm-input>
       </div>
     </div>
