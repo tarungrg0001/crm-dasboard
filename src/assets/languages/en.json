@@ -24,8 +24,6 @@
     "bulkAssignment": " Bulk assignment",
     "search": "Search user, sites or metrics",
     "table": {
-      "sortby": "Sortby",
-      "all": "All",
       "headers": [
         "Assignment Id",
         "Assigned To",
@@ -37,5 +35,10 @@
         "Action"
       ]
     }
+  },
+  "users": {
+    "heading": "Users",
+    "export": "Export",
+    "createUser": "Create new user"
   }
 }
