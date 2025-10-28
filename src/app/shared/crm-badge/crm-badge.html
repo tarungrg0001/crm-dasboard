@@ -1,0 +1,11 @@
+<div class="container">
+  @switch (type) { @case('round'){
+  <div class="badges">
+    @for (item of list; track $index) {
+    <div class="badge" [attr.type]="type">{{ item }}</div>
+    }
+  </div>
+  } @case ('oval') {
+  <div class="badge" [attr.type]="type" [ngClass]="status ? status : ''">{{ status }}</div>
+  } }
+</div>

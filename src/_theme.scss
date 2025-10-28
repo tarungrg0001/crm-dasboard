@@ -20,8 +20,8 @@
   --color-success-bg: #d3fecf; /* #D3FECF */
   --color-error: #dc5656; /* #DC5656 */
   --color-error-bg: #f6e1e1; /* #F6E1E1 */
-  --color-warning: #cfc208; /* #CFC208 */
-  --color-warning-dark: #817802; /* #817802 */
+  --color-warning: #817802; /* #817802 */
+  --color-warning-bg: #cfc208; /* #CFC208 */
 
   /* Neutral Variants */
   --color-neutral-50: #fafbff; /* #FAFBFF, #FCFCFD */
@@ -72,4 +72,11 @@
   /* Extras */
   --color-shadow: rgba(255, 255, 255, 0.1); /* derived */
   --color-overlay: rgba(255, 255, 255, 0.3); /* derived */
+
+  --ag-foreground-color: #f0f0f0;
+  --ag-background-color: var(--color-bg);
+  --ag-header-background-color: #1e1e1e;
+  --ag-odd-row-background-color: #181818;
+  --ag-row-hover-color: #2b2b2b;
+  --ag-border-color: #2d2d2d;
 }

@@ -24,14 +24,24 @@
     </div>
   </div>
   <div class="assignment-table-container">
-    <crm-table
-      [searchConfig]="{
-        placeholder: assignmentContent.search,
-        width: '402px',
-        height: '38px',
-        fontSize: '12px',
-        icon: searchIcon
-      }"
-    ></crm-table>
+    <div class="table-actions">
+      <div class="search">
+        <crm-input
+          [width]="searchConfig?.width"
+          [height]="searchConfig?.height"
+          [placeholder]="searchConfig?.placeholder"
+          [iconName]="searchConfig?.icon"
+          [fontSize]="searchConfig?.fontSize"
+        ></crm-input>
+      </div>
+    </div>
+    <ag-grid-angular
+      #myGrid
+      style="height: 550px"
+      [columnDefs]="colDef"
+      [rowData]="data"
+      [pagination]="true"
+      (gridReady)="onReady($event)"
+    ></ag-grid-angular>
   </div>
 </div>
