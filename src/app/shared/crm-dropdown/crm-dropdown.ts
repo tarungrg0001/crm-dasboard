@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, ElementRef, EventEmitter, HostListener, input, Output } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
@@ -10,7 +11,7 @@ interface DropdownConfig {
 
 @Component({
   selector: 'crm-dropdown',
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule, CommonModule],
   templateUrl: './crm-dropdown.html',
   styleUrl: './crm-dropdown.scss',
 })
@@ -22,6 +23,7 @@ export class CrmDropdown {
   public buttonConfig = input<DropdownConfig>();
 
   public showOptions: boolean = false;
+  public menuOutsideScreen: boolean = false;
   public readonly downArrow = faArrowDown;
 
   constructor(private el: ElementRef) {}
@@ -38,7 +40,14 @@ export class CrmDropdown {
     }
   }
 
-  onClick() {
+  public onClick(button: HTMLElement) {
+    this.menuOutsideScreen = false;
+    const rect = button.getBoundingClientRect();
+    const screenWidth = window.innerWidth;
+
+    if (rect.right + 30 > screenWidth) {
+      this.menuOutsideScreen = true;
+    }
     this.showOptions = !this.showOptions;
   }
 }

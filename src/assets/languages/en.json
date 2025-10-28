@@ -22,6 +22,20 @@
     "export": "Export",
     "createAssignment": "Create assignment",
     "bulkAssignment": " Bulk assignment",
-    "search": "Search user, sites or metrics"
+    "search": "Search user, sites or metrics",
+    "table": {
+      "sortby": "Sortby",
+      "all": "All",
+      "headers": [
+        "Assignment Id",
+        "Assigned To",
+        "Metric",
+        "Site",
+        "Status",
+        "Assigned date",
+        "Due date",
+        "Action"
+      ]
+    }
   }
 }
