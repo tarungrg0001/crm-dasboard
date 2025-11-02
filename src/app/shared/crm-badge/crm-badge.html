@@ -2,10 +2,12 @@
   @switch (type) { @case('round'){
   <div class="badges">
     @for (item of list; track $index) {
-    <div class="badge" [attr.type]="type">{{ item }}</div>
+    <div class="badge" [attr.type]="type">{{ item | nameInitials }}</div>
     }
   </div>
   } @case ('oval') {
-  <div class="badge" [attr.type]="type" [ngClass]="status ? status : ''">{{ status }}</div>
+  <div class="badge" [attr.type]="type" [ngClass]="[status, large() ? 'lg' : '']">
+    {{ status }}
+  </div>
   } }
 </div>

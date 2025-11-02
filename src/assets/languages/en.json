@@ -24,6 +24,11 @@
     "bulkAssignment": " Bulk assignment",
     "search": "Search user, sites or metrics",
     "table": {
+      "statuses": {
+        "notStarted": "not-started",
+        "inProgress": "in-progress",
+        "completed": "completed"
+      },
       "headers": [
         "Assignment Id",
         "Assigned To",
@@ -50,6 +55,25 @@
         "Metrics Assigned",
         "Contact"
       ]
+    }
+  },
+  "assignment": {
+    "createAssignment": "Create assignment",
+    "status": "Status",
+    "assignedBy": "Assigned by",
+    "assignedTo": "Assigned to",
+    "assignedOn": "Assigned on",
+    "dueOn": "Due on",
+    "metrics": "Metrics",
+    "site": "Site",
+    "description": "Description",
+    "back": "Back",
+    "reset": "Reset",
+    "save": "Save",
+    "statuses": {
+      "notStarted": "not-started",
+      "inProgress": "in-progress",
+      "completed": "completed"
     }
   }
 }

@@ -30,7 +30,7 @@ export class CrmDropdown {
 
   public optionClicked(selectedValue: string | { name: string; code: string }) {
     this._action.emit(typeof selectedValue === 'string' ? selectedValue : selectedValue.code);
-    this.showOptions;
+    this.showOptions = false;
   }
 
   @HostListener('document:click', ['$event.target'])

@@ -12,15 +12,16 @@ import {
 } from 'ag-grid-community';
 
 import { Resource } from '../../services/resource';
-import { CrmBadge } from '../../shared/crm-badge/crm-badge';
+import { CrmBadgeRenderer } from '../../shared/crm-badge/crm-badge-renderer';
 import { CrmActionRenderer } from '../../shared/tables/crm-action-renderer/crm-action-renderer';
 import { CrmInput } from '../../shared/crm-input/crm-input';
+import { RouterLink } from '@angular/router';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 @Component({
   selector: 'crm-assignments',
-  imports: [FontAwesomeModule, AgGridAngular, CommonModule, CrmInput],
+  imports: [FontAwesomeModule, AgGridAngular, CommonModule, CrmInput, RouterLink],
   providers: [DatePipe],
   templateUrl: './crm-assignments.html',
   styleUrl: './crm-assignments.scss',
@@ -37,7 +38,7 @@ export class CrmAssignments {
   public data = [
     {
       assignmentId: 1,
-      assignmentTo: ['TG'],
+      assignmentTo: ['Tarun Garg'],
       metric: 'M1',
       site: 'S1',
       status: 'not-started',
@@ -46,7 +47,7 @@ export class CrmAssignments {
     },
     {
       assignmentId: 2,
-      assignmentTo: ['TG', 'AS'],
+      assignmentTo: ['Tarun Garg', 'Ashish Sharma'],
       metric: 'M1',
       site: 'S1',
       status: 'completed',
@@ -82,7 +83,7 @@ export class CrmAssignments {
       },
       {
         field: 'assignmentTo',
-        cellRenderer: CrmBadge,
+        cellRenderer: CrmBadgeRenderer,
         cellRendererParams: { type: 'round' },
         headerName: this.tableContent.headers[1],
         filter: true,
@@ -91,7 +92,7 @@ export class CrmAssignments {
       { field: 'site', headerName: this.tableContent.headers[3], filter: true },
       {
         field: 'status',
-        cellRenderer: CrmBadge,
+        cellRenderer: CrmBadgeRenderer,
         cellRendererParams: { type: 'oval' },
         headerName: this.tableContent.headers[4],
         filter: true,
