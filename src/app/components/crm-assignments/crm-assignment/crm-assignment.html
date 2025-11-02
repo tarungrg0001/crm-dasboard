@@ -1,0 +1,121 @@
+@if(show()){
+<crm-modal [heading]="heading" (buttonClicked)="closeGrid($event)">
+  <ag-grid-angular
+    #mygrid
+    style="height: 300px"
+    [columnDefs]="colDef"
+    [rowData]="data"
+    [rowSelection]="rowSelection"
+    (gridReady)="onGridReady($event)"
+  ></ag-grid-angular>
+</crm-modal>
+}
+
+<div class="container">
+  <div class="header-container">
+    <h2 class="label">{{ assignmentContent.createAssignment }}</h2>
+  </div>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-container">
+      <div class="status-group full-row">
+        <label for="status"> {{ assignmentContent.status }} </label>
+        <div style="display: flex; flex-direction: row; gap: 10px; align-items: center">
+          <crm-badge-control
+            id="status"
+            [badgeType]="'oval'"
+            [badgeStatus]="assignment.status"
+            [large]="true"
+            [(ngModel)]="assignment.status"
+            name="status"
+          ></crm-badge-control>
+          <crm-dropdown
+            [iconName]="downIcon"
+            [options]="['not-started', 'in-progress', 'completed']"
+            (action)="selectedStatus($event)"
+          ></crm-dropdown>
+        </div>
+      </div>
+
+      <label for="assignedBy">{{ assignmentContent.assignedBy }}</label>
+      <input
+        id="assignedBy"
+        class="form-input"
+        required
+        [(ngModel)]="assignment.assignedBy"
+        name="assignedBy"
+      />
+
+      <label for="assignedTo">{{ assignmentContent.assignedTo }}</label>
+      <div class="group">
+        <crm-badge-control
+          id="assignedTo"
+          [badgeType]="'round'"
+          [badgeList]="assignment.assignedTo"
+          [(ngModel)]="assignment.assignedTo"
+          name="assignedTo"
+        ></crm-badge-control>
+        <fa-icon class="plus-icon" [icon]="addIcon" (click)="setupGrid('assignedTo')"></fa-icon>
+      </div>
+
+      <label for="assignedOn"></label>
+      <input
+        id="assignedOn"
+        type="date"
+        class="form-input"
+        required
+        [(ngModel)]="assignment.assignedOn"
+        name="assignedOn"
+      />
+
+      <label for="dueOn">{{ assignmentContent.dueOn }}</label>
+      <input
+        id="dueOn"
+        type="date"
+        class="form-input"
+        [(ngModel)]="assignment.dueOn"
+        name="dueOn"
+      />
+
+      <div class="half-row">
+        <label for="metric">{{ assignmentContent.metrics }}</label>
+        <div class="group">
+          <crm-button-badge
+            [selectedValues]="assignment.metrics"
+            id="metric"
+            name="metric"
+            [(ngModel)]="assignment.metrics"
+          ></crm-button-badge>
+          <fa-icon class="plus-icon" [icon]="addIcon" (click)="setupGrid('metrics')"></fa-icon>
+        </div>
+      </div>
+
+      <div class="half-row">
+        <label for="site">{{ assignmentContent.site }}</label>
+        <div class="group">
+          <crm-button-badge
+            [selectedValue]="assignment.site"
+            id="site"
+            name="site"
+            [(ngModel)]="assignment.site"
+          ></crm-button-badge>
+          <fa-icon class="plus-icon" [icon]="addIcon" (click)="setupGrid('site')"></fa-icon>
+        </div>
+      </div>
+
+      <div class="description-group full-row">
+        <label for="description">{{ assignmentContent.description }}</label>
+        <textarea
+          id="description"
+          class="description"
+          [(ngModel)]="assignment.description"
+          name="description"
+        ></textarea>
+      </div>
+    </div>
+    <div class="footer">
+      <button class="btn" routerLink="../">{{ assignmentContent.back }}</button>
+      <button class="btn btn-danger">{{ assignmentContent.reset }}</button>
+      <button class="btn btn-success" type="submit">{{ assignmentContent.save }}</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,120 @@
+.container {
+  padding: 24px;
+}
+
+.header-container {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--color-text-primary);
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns: 80px 1fr 80px 1fr;
+  gap: 16px 38px;
+  align-items: center;
+  grid-auto-rows: minmax(42px, auto);
+}
+
+.full-row {
+  grid-column: span 4;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 16px 38px;
+  align-items: center;
+}
+
+.half-row {
+  grid-column: span 2;
+  display: contents;
+}
+
+.half-row > label {
+  grid-column: 1 / 2; /* label goes in first column */
+}
+
+.half-row > div {
+  grid-column: 2; /* input spans the rest of the row */
+}
+
+label {
+  font-size: 14px;
+  color: var(--color-text-primary);
+  font-weight: 300;
+}
+
+.form-input {
+  height: 42px;
+  color: var(--color-text-primary);
+  background-color: var(--color-neutral-100);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.description {
+  color: var(--color-text-primary);
+  background-color: var(--color-neutral-100);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.description-group textarea {
+  resize: vertical;
+}
+
+/* Tablet (≤ 1024px) */
+@media (max-width: 1024px) {
+  .form-container {
+    grid-template-columns: 120px 1fr; /* label + field */
+  }
+
+  .full-row {
+    grid-template-columns: 120px 1fr;
+    grid-column: span 2;
+  }
+}
+
+/* Mobile (≤ 600px) */
+@media (max-width: 600px) {
+  .form-container {
+    grid-template-columns: 1fr; /* 1 column layout */
+  }
+
+  .form-container label {
+    margin-top: 8px;
+  }
+
+  .full-row {
+    grid-template-columns: 1fr;
+  }
+
+  .full-row label {
+    margin-bottom: 4px;
+  }
+}
+
+.footer {
+  margin-top: 100px;
+  display: flex;
+  gap: 10px;
+}
+
+.group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plus-icon {
+  color: var(--color-neutral-400);
+}
