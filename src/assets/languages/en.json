@@ -48,7 +48,7 @@
     "table": {
       "headers": [
         "User Id",
-        "Username",
+        "Name",
         "Email Id",
         "Assignments",
         "Sites Assigned",
@@ -75,5 +75,8 @@
       "inProgress": "in-progress",
       "completed": "completed"
     }
+  },
+  "user": {
+    "createUser": "Create User"
   }
 }
