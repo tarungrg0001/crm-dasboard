@@ -44,6 +44,7 @@
   "users": {
     "heading": "Users",
     "export": "Export",
+    "search": "Search users",
     "createUser": "Create new user",
     "table": {
       "headers": [
