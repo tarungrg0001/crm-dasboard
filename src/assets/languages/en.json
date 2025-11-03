@@ -80,9 +80,16 @@
     "createUser": "Create User",
     "name": "Name",
     "email": "Email",
-    "mobile": "Mobile",
+    "mobile": "Contact",
     "back": "Back",
     "reset": "Reset",
-    "save": "Save"
+    "save": "Save",
+    "errors": {
+      "nameRequired": "Name is required field",
+      "emailRequired": "Email is required field",
+      "emailIncorrect": "Please provide correct email address",
+      "mobileRequired": "Contact number is a required field",
+      "mobileIncorrect": "Contact number should contact 10 digits"
+    }
   }
 }

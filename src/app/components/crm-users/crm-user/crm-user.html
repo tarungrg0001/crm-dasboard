@@ -5,7 +5,9 @@
   <form (ngSubmit)="onSubmit(userForm)" #userForm="ngForm">
     <div class="form-container">
       <div class="half-row">
-        <label for="name">{{ userContent.name }}</label>
+        <div class="label">
+          <label for="name">{{ userContent.name }}</label>
+        </div>
         <div class="input-wrapper">
           <input
             type="text"
@@ -20,14 +22,16 @@
             required=""
             #name="ngModel"
           />
-          @if(name.invalid && name.touched){
-          <fa-icon class="error-icon" [icon]="errorIcon"></fa-icon>
-          }
+          @if(name.invalid && name.touched){ @if(name?.errors?.['required'] ){
+          <small class="error">{{ userContent.errors?.nameRequired }}</small>
+          } }
         </div>
       </div>
 
       <div class="half-row">
-        <label for="email">{{ userContent.email }}</label>
+        <div class="label">
+          <label for="email">{{ userContent.email }}</label>
+        </div>
         <div class="input-wrapper">
           <input
             type="email"
@@ -44,15 +48,19 @@
             pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
             #email="ngModel"
           />
-          @if(email.invalid && email.touched){
-          <fa-icon class="error-icon" [icon]="errorIcon"></fa-icon>
-          }
+          @if(email.invalid && email.touched){ @if(email?.errors?.['required'] ){
+          <small class="error">{{ userContent.errors?.emailRequired }}</small>
+          } @else if(email?.errors?.['pattern']){
+          <small class="error">{{ userContent.errors?.emailIncorrect }}</small>
+          }}
         </div>
       </div>
 
       <div class="half-row">
-        <label for="mobile">{{ userContent.mobile }}</label>
-        <div class="input-wrapper">
+        <div class="label">
+          <label for="mobile">{{ userContent.mobile }}</label>
+        </div>
+        <div class="input-wrapper" crmTooltip="'ssss'">
           <input
             type="number"
             class="form-input mobile"
@@ -65,16 +73,15 @@
             [(ngModel)]="user.mobile"
             required=""
             #mobile="ngModel"
-            pattern="^[6-9]\d{9}$"
-            maxlength="10"
-            minlength="10"
+            pattern="^\d{9}$"
             inputmode="numeric"
-            title="Enter a 10-digit mobile number starting with 6,7,8 or 9"
+            title="Enter a 10-digit mobile number"
           />
-          @if(mobile.invalid && mobile.touched){
-          <fa-icon class="error-icon" data-tooltip-target="tooltip-light" [icon]="errorIcon">
-          </fa-icon>
-          }
+          @if(mobile.invalid && mobile.touched){ @if(mobile?.errors?.['required'] ){
+          <small class="error">{{ userContent.errors?.mobileRequired }}</small>
+          } @else if(mobile?.errors?.['pattern']){
+          <small class="error">{{ userContent.errors?.mobileIncorrect }}</small>
+          }}
         </div>
       </div>
     </div>
