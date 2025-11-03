@@ -94,4 +94,8 @@ export class CrmUsers {
   public searchValue(value: string): void {
     this.myGridApi.setGridOption('quickFilterText', value);
   }
+
+  public exportData() {
+    this._resource.exportToExcel(this.data, 'users');
+  }
 }
