@@ -1,9 +1,6 @@
-.header-container {
+.header {
   height: 67px;
-  display: flex;
   background-color: var(--color-surface);
-  justify-content: space-between;
-  align-items: center;
   border: 1px solid var(--color-border);
 
   .header-logo {

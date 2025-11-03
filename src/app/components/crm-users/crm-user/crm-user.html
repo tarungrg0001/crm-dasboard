@@ -1,0 +1,101 @@
+<div class="px-24 py-24">
+  <div class="header-container user-header">
+    <h2>{{ userContent.createUser }}</h2>
+  </div>
+  <form (ngSubmit)="onSubmit(userForm)" #userForm="ngForm">
+    <div class="form-container">
+      <div class="half-row">
+        <div class="label">
+          <label for="name">{{ userContent.name }}</label>
+        </div>
+        <div class="input-wrapper">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form-input"
+            [ngClass]="{
+              danger: name.invalid && name.touched,
+              success: name.valid && name.touched
+            }"
+            [(ngModel)]="user.name"
+            required=""
+            #name="ngModel"
+          />
+          @if(name.invalid && name.touched){ @if(name?.errors?.['required'] ){
+          <small class="error">{{ userContent.errors?.nameRequired }}</small>
+          } }
+        </div>
+      </div>
+
+      <div class="half-row">
+        <div class="label">
+          <label for="email">{{ userContent.email }}</label>
+        </div>
+        <div class="input-wrapper">
+          <input
+            type="email"
+            class="form-input"
+            name="email"
+            id="email"
+            [ngClass]="{
+              danger: email.invalid && email.touched,
+              success: email.valid && email.touched
+            }"
+            [(ngModel)]="user.email"
+            required=""
+            email=""
+            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            #email="ngModel"
+          />
+          @if(email.invalid && email.touched){ @if(email?.errors?.['required'] ){
+          <small class="error">{{ userContent.errors?.emailRequired }}</small>
+          } @else if(email?.errors?.['pattern']){
+          <small class="error">{{ userContent.errors?.emailIncorrect }}</small>
+          }}
+        </div>
+      </div>
+
+      <div class="half-row">
+        <div class="label">
+          <label for="mobile">{{ userContent.mobile }}</label>
+        </div>
+        <div class="input-wrapper" crmTooltip="'ssss'">
+          <input
+            type="number"
+            class="form-input mobile"
+            [ngClass]="{
+              danger: mobile.invalid && mobile.touched,
+              success: mobile.valid && mobile.touched
+            }"
+            name="mobile"
+            id="mobile"
+            [(ngModel)]="user.mobile"
+            required=""
+            #mobile="ngModel"
+            pattern="^\d{9}$"
+            inputmode="numeric"
+            title="Enter a 10-digit mobile number"
+          />
+          @if(mobile.invalid && mobile.touched){ @if(mobile?.errors?.['required'] ){
+          <small class="error">{{ userContent.errors?.mobileRequired }}</small>
+          } @else if(mobile?.errors?.['pattern']){
+          <small class="error">{{ userContent.errors?.mobileIncorrect }}</small>
+          }}
+        </div>
+      </div>
+    </div>
+    <div class="button-group footer">
+      <button class="btn" routerLink="../">{{ userContent.back }}</button>
+      <button class="btn btn-danger" (click)="userForm.resetForm()">{{ userContent.reset }}</button>
+      <button
+        class="btn btn-success"
+        [ngClass]="userForm.invalid ? 'disabled' : ''"
+        [disabled]="userForm.invalid"
+        type="submit"
+      >
+        {{ userContent.save }}
+      </button>
+    </div>
+  </form>
+</div>

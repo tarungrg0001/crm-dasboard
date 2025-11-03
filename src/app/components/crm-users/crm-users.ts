@@ -5,10 +5,11 @@ import { Resource } from '../../services/resource';
 import { AgGridAngular } from 'ag-grid-angular';
 import { CrmInput } from '../../shared/crm-input/crm-input';
 import { ColDef, GridApi, GridReadyEvent } from 'ag-grid-community';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'crm-crm-users',
-  imports: [FontAwesomeModule, AgGridAngular, CrmInput],
+  imports: [FontAwesomeModule, AgGridAngular, CrmInput, RouterLink],
   templateUrl: './crm-users.html',
   styleUrl: './crm-users.scss',
 })

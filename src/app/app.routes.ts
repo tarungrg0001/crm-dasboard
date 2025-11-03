@@ -3,6 +3,7 @@ import { CrmDashboard } from './components/crm-dashboard/crm-dashboard';
 import { CrmAssignments } from './components/crm-assignments/crm-assignments';
 import { CrmUsers } from './components/crm-users/crm-users';
 import { CrmAssignment } from './components/crm-assignments/crm-assignment/crm-assignment';
+import { CrmUser } from './components/crm-users/crm-user/crm-user';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
@@ -15,4 +16,15 @@ export const routes: Routes = [
     ],
   },
   { path: 'users', component: CrmUsers },
+  {
+    path: 'users',
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        component: CrmUsers,
+      },
+      { path: 'user', component: CrmUser },
+    ],
+  },
 ];
