@@ -4,8 +4,91 @@
   </div>
   <form (ngSubmit)="onSubmit(userForm)" #userForm="ngForm">
     <div class="form-container">
-      <label for="name">Name</label>
-      <input type="text" />
+      <div class="half-row">
+        <label for="name">{{ userContent.name }}</label>
+        <div class="input-wrapper">
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form-input"
+            [ngClass]="{
+              danger: name.invalid && name.touched,
+              success: name.valid && name.touched
+            }"
+            [(ngModel)]="user.name"
+            required=""
+            #name="ngModel"
+          />
+          @if(name.invalid && name.touched){
+          <fa-icon class="error-icon" [icon]="errorIcon"></fa-icon>
+          }
+        </div>
+      </div>
+
+      <div class="half-row">
+        <label for="email">{{ userContent.email }}</label>
+        <div class="input-wrapper">
+          <input
+            type="email"
+            class="form-input"
+            name="email"
+            id="email"
+            [ngClass]="{
+              danger: email.invalid && email.touched,
+              success: email.valid && email.touched
+            }"
+            [(ngModel)]="user.email"
+            required=""
+            email=""
+            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            #email="ngModel"
+          />
+          @if(email.invalid && email.touched){
+          <fa-icon class="error-icon" [icon]="errorIcon"></fa-icon>
+          }
+        </div>
+      </div>
+
+      <div class="half-row">
+        <label for="mobile">{{ userContent.mobile }}</label>
+        <div class="input-wrapper">
+          <input
+            type="number"
+            class="form-input mobile"
+            [ngClass]="{
+              danger: mobile.invalid && mobile.touched,
+              success: mobile.valid && mobile.touched
+            }"
+            name="mobile"
+            id="mobile"
+            [(ngModel)]="user.mobile"
+            required=""
+            #mobile="ngModel"
+            pattern="^[6-9]\d{9}$"
+            maxlength="10"
+            minlength="10"
+            inputmode="numeric"
+            title="Enter a 10-digit mobile number starting with 6,7,8 or 9"
+          />
+          @if(mobile.invalid && mobile.touched){
+          <fa-icon class="error-icon" data-tooltip-target="tooltip-light" [icon]="errorIcon">
+          </fa-icon>
+          }
+        </div>
+      </div>
+    </div>
+    <div class="button-group footer">
+      <button class="btn" routerLink="../">{{ userContent.back }}</button>
+      <button class="btn btn-danger" (click)="userForm.resetForm()">{{ userContent.reset }}</button>
+      <button
+        class="btn btn-success"
+        [ngClass]="userForm.invalid ? 'disabled' : ''"
+        [disabled]="userForm.invalid"
+        type="submit"
+      >
+        {{ userContent.save }}
+      </button>
     </div>
   </form>
 </div>

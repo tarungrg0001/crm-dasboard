@@ -77,6 +77,12 @@
     }
   },
   "user": {
-    "createUser": "Create User"
+    "createUser": "Create User",
+    "name": "Name",
+    "email": "Email",
+    "mobile": "Mobile",
+    "back": "Back",
+    "reset": "Reset",
+    "save": "Save"
   }
 }

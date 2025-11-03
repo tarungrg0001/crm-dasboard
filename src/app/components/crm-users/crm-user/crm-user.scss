@@ -5,7 +5,56 @@
 }
 
 .form-container {
+  padding-top: 24px;
   display: grid;
   grid-template-columns: 80px 1fr 80px 1fr;
   gap: 16px 38px;
+  grid-auto-rows: minmax(42, auto);
+  align-items: center;
+}
+
+.half-row {
+  grid-column: span 2;
+  display: contents;
+}
+
+.half-row > label {
+  grid-column: 1 / 2; /* label goes in first column */
+}
+
+.half-row > input {
+  grid-column: 2; /* input spans the rest of the row */
+}
+
+label {
+  font-size: 14px;
+  color: var(--color-text-primary);
+  font-weight: 300;
+}
+
+.footer {
+  margin-top: 100px;
+}
+
+.disabled {
+  opacity: 0.6;
+}
+
+.input-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.error-icon {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--color-error);
+}
+
+.mobile::-webkit-inner-spin-button,
+.mobile::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
