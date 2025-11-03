@@ -73,7 +73,7 @@
             [(ngModel)]="user.mobile"
             required=""
             #mobile="ngModel"
-            pattern="^\d{9}$"
+            pattern="^[0-9]{10}$"
             inputmode="numeric"
             title="Enter a 10-digit mobile number"
           />
@@ -86,8 +86,10 @@
       </div>
     </div>
     <div class="button-group footer">
-      <button class="btn" routerLink="../">{{ userContent.back }}</button>
-      <button class="btn btn-danger" (click)="userForm.resetForm()">{{ userContent.reset }}</button>
+      <button class="btn" type="button" routerLink="../">{{ userContent.back }}</button>
+      <button class="btn btn-danger" type="reset" (click)="userForm.resetForm()">
+        {{ userContent.reset }}
+      </button>
       <button
         class="btn btn-success"
         [ngClass]="userForm.invalid ? 'disabled' : ''"

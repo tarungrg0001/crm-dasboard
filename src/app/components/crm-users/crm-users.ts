@@ -1,11 +1,16 @@
 import { Component, effect } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faUpload, faPlus, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { Resource } from '../../services/resource';
 import { AgGridAngular } from 'ag-grid-angular';
-import { CrmInput } from '../../shared/crm-input/crm-input';
 import { ColDef, GridApi, GridReadyEvent } from 'ag-grid-community';
-import { RouterLink } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+import { Resource } from '../../services/resource';
+import { CrmInput } from '../../shared/crm-input/crm-input';
+import { User } from '../../model/user';
+import { getUsers } from '../../store/users/users.selector';
 
 @Component({
   selector: 'crm-crm-users',
@@ -22,19 +27,14 @@ export class CrmUsers {
   private myGridApi!: GridApi;
   public colDef!: ColDef[];
 
-  public data = [
-    {
-      userId: 1,
-      userName: 'Tarun Garg',
-      mail: 'tarun@fake.com',
-      assignments: 6,
-      sitesAssigned: 12,
-      metricsAssigned: 20,
-      contact: 9876543210,
-    },
-  ];
+  public data!: User[];
+  public userList$!: Observable<User[]>;
 
-  constructor(private _resource: Resource) {
+  constructor(private _resource: Resource, private _store: Store<{ users: User[] }>) {
+    this.userList$ = _store.select(getUsers);
+    this.userList$.subscribe((res) => {
+      this.data = res;
+    });
     effect(() => {
       this.userContent = this._resource.content().users;
       this.searchConfig = {
@@ -51,17 +51,17 @@ export class CrmUsers {
   private defineColumns() {
     this.colDef = [
       {
-        field: 'userId',
+        field: 'id',
         headerName: this.userContent.table.headers[0],
         filter: true,
         sort: 'desc',
       },
       {
-        field: 'userName',
+        field: 'name',
         headerName: this.userContent.table.headers[1],
         filter: true,
       },
-      { field: 'mail', headerName: this.userContent.table.headers[2], filter: true },
+      { field: 'email', headerName: this.userContent.table.headers[2], filter: true },
       {
         field: 'assignments',
         headerName: this.userContent.table.headers[3],
@@ -78,7 +78,7 @@ export class CrmUsers {
         filter: 'agNumberColumnFilter',
       },
       {
-        field: 'contact',
+        field: 'mobile',
         headerName: this.userContent.table.headers[6],
         filter: true,
         resizable: false,
