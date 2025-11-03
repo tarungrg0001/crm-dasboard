@@ -31,6 +31,7 @@
     "@fortawesome/angular-fontawesome": "^3.0.0",
     "@fortawesome/fontawesome-svg-core": "^7.1.0",
     "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@ngrx/store": "^20.1.0",
     "@tailwindcss/postcss": "^4.1.14",
     "ag-grid-angular": "^34.3.0",
     "postcss": "^8.5.6",

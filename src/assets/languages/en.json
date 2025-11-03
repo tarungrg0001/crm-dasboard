@@ -89,7 +89,7 @@
       "emailRequired": "Email is required field",
       "emailIncorrect": "Please provide correct email address",
       "mobileRequired": "Contact number is a required field",
-      "mobileIncorrect": "Contact number should contact 10 digits"
+      "mobileIncorrect": "Contact number should have 10 digits"
     }
   }
 }
