@@ -1,5 +1,15 @@
 <div class="action">
-  <fa-icon [icon]="eyeIcon" size="sm"></fa-icon>
-  <fa-icon [icon]="pencilIcon" size="sm"></fa-icon>
-  <fa-icon [icon]="garbageIcon" size="sm"></fa-icon>
+  <fa-icon
+    [icon]="eyeIcon"
+    size="sm"
+    [routerLink]="['user', id]"
+    [queryParams]="{ mode: 'view' }"
+  ></fa-icon>
+  <fa-icon
+    [icon]="pencilIcon"
+    size="sm"
+    [routerLink]="['user', id]"
+    [queryParams]="{ mode: 'edit' }"
+  ></fa-icon>
+  <fa-icon [icon]="garbageIcon" size="sm" (click)="delete()"></fa-icon>
 </div>

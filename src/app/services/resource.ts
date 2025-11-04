@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, signal } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 
@@ -9,8 +9,9 @@ import { saveAs } from 'file-saver';
 export class Resource {
   private contentSignal = signal<any>(null);
   public readonly content = this.contentSignal.asReadonly();
+  private _http = inject(HttpClient);
 
-  constructor(private _http: HttpClient) {}
+  constructor() {}
 
   public getContent() {
     this._http.get('assets/languages/en.json').subscribe((data) => {

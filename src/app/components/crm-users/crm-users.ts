@@ -1,5 +1,5 @@
-import { Component, effect } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, effect, inject, signal } from '@angular/core';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faUpload, faPlus, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { AgGridAngular } from 'ag-grid-angular';
@@ -11,10 +11,13 @@ import { Resource } from '../../services/resource';
 import { CrmInput } from '../../shared/crm-input/crm-input';
 import { User } from '../../model/user';
 import { getUsers } from '../../store/users/users.selector';
+import { CrmActionRenderer } from '../../shared/tables/crm-action-renderer/crm-action-renderer';
+import { UserService } from '../../services/user/user';
+import { CrmModal } from '../../shared/crm-modal/crm-modal';
 
 @Component({
   selector: 'crm-crm-users',
-  imports: [FontAwesomeModule, AgGridAngular, CrmInput, RouterLink],
+  imports: [FontAwesomeModule, AgGridAngular, CrmInput, RouterLink, CrmModal],
   templateUrl: './crm-users.html',
   styleUrl: './crm-users.scss',
 })
@@ -24,28 +27,42 @@ export class CrmUsers {
   public readonly searchIcon = faMagnifyingGlass;
   public userContent!: any;
   public searchConfig!: any;
-  private myGridApi!: GridApi;
+  public showDeleteModal = signal(false);
+  public deleteId = signal<number>(0);
   public colDef!: ColDef[];
+  private myGridApi!: GridApi;
 
   public data!: User[];
   public userList$!: Observable<User[]>;
 
-  constructor(private _resource: Resource, private _store: Store<{ users: User[] }>) {
-    this.userList$ = _store.select(getUsers);
+  private _resource = inject(Resource);
+  private _userService = inject(UserService);
+  private _store = inject(Store<{ users: User[] }>);
+
+  constructor() {
+    this.getUsersList();
+    effect(() => {
+      this.initialize();
+    });
+  }
+
+  private getUsersList() {
+    this.userList$ = this._store.select(getUsers);
     this.userList$.subscribe((res) => {
       this.data = res;
     });
-    effect(() => {
-      this.userContent = this._resource.content().users;
-      this.searchConfig = {
-        placeholder: this.userContent?.search,
-        width: '402px',
-        height: '38px',
-        fontSize: '12px',
-        icon: this.searchIcon,
-      };
-      this.defineColumns();
-    });
+  }
+
+  private initialize() {
+    this.userContent = this._resource.content().users;
+    this.searchConfig = {
+      placeholder: this.userContent?.search,
+      width: '402px',
+      height: '38px',
+      fontSize: '12px',
+      icon: this.searchIcon,
+    };
+    this.defineColumns();
   }
 
   private defineColumns() {
@@ -78,10 +95,16 @@ export class CrmUsers {
         filter: 'agNumberColumnFilter',
       },
       {
-        field: 'mobile',
+        field: 'contact',
         headerName: this.userContent.table.headers[6],
         filter: true,
         resizable: false,
+      },
+      {
+        field: '',
+        headerName: this.userContent.table.headers[7],
+        resizable: false,
+        cellRenderer: CrmActionRenderer,
       },
     ];
   }
@@ -97,5 +120,17 @@ export class CrmUsers {
 
   public exportData() {
     this._resource.exportToExcel(this.data, 'users');
+  }
+
+  public deleteUser(id: number) {
+    this.deleteId.set(id);
+    this.showDeleteModal.set(true);
+  }
+
+  public closeModal(action: string) {
+    if (action === 'delete') {
+      this._userService.deleteUser(this.deleteId());
+    }
+    this.showDeleteModal.set(false);
   }
 }

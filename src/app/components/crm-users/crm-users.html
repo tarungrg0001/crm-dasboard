@@ -37,6 +37,16 @@
       [rowData]="data"
       [pagination]="true"
       (gridReady)="onReady($event)"
+      [context]="{ componentParent: this }"
     ></ag-grid-angular>
   </div>
 </div>
+@if (showDeleteModal()) {
+<crm-modal
+  [heading]="userContent.deleteUser"
+  (buttonClicked)="closeModal($event)"
+  [buttonName]="userContent.delete"
+>
+  {{ userContent.deleteBody }}</crm-modal
+>
+}

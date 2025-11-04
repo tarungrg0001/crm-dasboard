@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 
 import { User } from '../../model/user';
-import { createUser } from './users.actions';
+import { createUser, deleteUser } from './users.actions';
 
 const initialState: User[] = [
   {
@@ -11,7 +11,7 @@ const initialState: User[] = [
     assignments: 6,
     sitesAssigned: 12,
     metricsAssigned: 20,
-    mobile: 9876543210,
+    contact: 9876543210,
   },
 ];
 
@@ -19,5 +19,8 @@ export const usersReducers = createReducer(
   initialState,
   on(createUser, (state, action) => {
     return [action.value, ...state];
+  }),
+  on(deleteUser, (state, action) => {
+    return state.filter((user) => user.id !== action.value);
   })
 );
