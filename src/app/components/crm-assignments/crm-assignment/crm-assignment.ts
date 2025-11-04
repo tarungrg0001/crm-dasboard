@@ -104,7 +104,7 @@ export class CrmAssignment {
     this.assignment.status = status;
   }
 
-  public closeGrid(action: 'cancel' | 'save') {
+  public closeGrid(action: string) {
     if (action === 'save') {
       if (this.gridModalOpenBy === 'metrics') {
         this.assignment.metrics = this.myGridApi.getSelectedRows().map((row) => row.name);
