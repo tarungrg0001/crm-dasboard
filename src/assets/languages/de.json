@@ -5,7 +5,7 @@
   },
   "navBar": {
     "navigation": "Navigation",
-    "navigationOptions": ["Dashboard", "Aufgaben", "Benutzer", "Standorte", "Metriken", "Analytik"],
+    "navigationOptions": ["Dashboard", "Aufgaben", "Benutzer", "Standorte", "Analytik"],
     "admin": "Admin",
     "adminOptions": ["Benachrichtigungen", "Einstellungen"],
     "darkMode": "Dunkelmodus"
@@ -13,7 +13,7 @@
   "dashboard": {
     "dashboard": "Dashboard",
     "card": {
-      "headingOptions": ["Benutzer", "Aktive Standorte", "Aufgaben", "ESG-Metriken"],
+      "headingOptions": ["Benutzer", "Aktive Standorte", "Aufgaben"],
       "footer": "im Vergleich zum letzten Monat"
     }
   },
@@ -22,7 +22,7 @@
     "export": "Exportieren",
     "createAssignment": "Aufgabe erstellen",
     "bulkAssignment": "Massenaufgabe",
-    "search": "Benutzer, Standorte oder Metriken suchen",
+    "search": "Benutzer oder Standorte suchen",
     "table": {
       "statuses": {
         "notStarted": "nicht-begonnen",
@@ -32,7 +32,6 @@
       "headers": [
         "Aufgaben-ID",
         "Zugewiesen an",
-        "Metrik",
         "Standort",
         "Status",
         "Zugewiesen am",
@@ -56,7 +55,6 @@
         "E-Mail-ID",
         "Aufgaben",
         "Zugewiesene Standorte",
-        "Zugewiesene Metriken",
         "Kontakt",
         "Aktion"
       ]
@@ -69,7 +67,6 @@
     "assignedTo": "Zugewiesen an",
     "assignedOn": "Zugewiesen am",
     "dueOn": "Fällig am",
-    "metrics": "Metriken",
     "site": "Standort",
     "description": "Beschreibung",
     "back": "Zurück",
@@ -93,8 +90,8 @@
       "nameRequired": "Name ist ein Pflichtfeld",
       "emailRequired": "E-Mail ist ein Pflichtfeld",
       "emailIncorrect": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
-      "contactRequired": "Kontakt ist ein Pflichtfeld",
-      "contactIncorrect": "Kontaktnummer muss 10-stellig sein"
+      "contactRequired": "Kontaktnummer ist ein Pflichtfeld",
+      "contactIncorrect": "Kontaktnummer muss 10 Stellen haben"
     }
   }
 }

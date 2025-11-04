@@ -77,19 +77,6 @@
       />
 
       <div class="half-row">
-        <label for="metric">{{ assignmentContent.metrics }}</label>
-        <div class="group">
-          <crm-button-badge
-            [selectedValues]="assignment.metrics"
-            id="metric"
-            name="metric"
-            [(ngModel)]="assignment.metrics"
-          ></crm-button-badge>
-          <fa-icon class="plus-icon" [icon]="addIcon" (click)="setupGrid('metrics')"></fa-icon>
-        </div>
-      </div>
-
-      <div class="half-row">
         <label for="site">{{ assignmentContent.site }}</label>
         <div class="group">
           <crm-button-badge

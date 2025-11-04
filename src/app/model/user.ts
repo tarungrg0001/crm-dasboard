@@ -5,5 +5,4 @@ export interface User {
   contact: number;
   assignments?: number;
   sitesAssigned?: number;
-  metricsAssigned?: number;
 }

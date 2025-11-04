@@ -13,9 +13,9 @@ import { faClose } from '@fortawesome/free-solid-svg-icons';
     </div>
     }@else if ((selectedValues()?.length??0)>0){
     <div class="netrual-badges">
-      @for(metric of selectedValues(); track $index){
+      @for(value of selectedValues(); track $index){
       <div class="neutral-badge">
-        <span> {{ metric }} </span>
+        <span> {{ value }} </span>
         <fa-icon [icon]="closeIcon" [size]="'xs'"></fa-icon>
       </div>
       }

@@ -1,4 +1,4 @@
 {
-  "navigationOptions": ["Dashboard", "Assignments", "Users", "Sites", "Metrics", "Analytics"],
+  "navigationOptions": ["Dashboard", "Assignments", "Users", "Sites", "Analytics"],
   "adminOptions": ["Notifications", "Settings"]
 }

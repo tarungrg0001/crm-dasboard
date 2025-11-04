@@ -61,7 +61,6 @@ export class CrmUser implements OnInit {
   public onSubmit(form: NgForm) {
     const user: User = {
       id: this.noOfUsers + 1,
-      metricsAssigned: 0,
       sitesAssigned: 0,
       assignments: 0,
       ...form.value,

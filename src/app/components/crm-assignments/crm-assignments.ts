@@ -39,7 +39,6 @@ export class CrmAssignments {
     {
       assignmentId: 1,
       assignmentTo: ['Tarun Garg'],
-      metric: 'M1',
       site: 'S1',
       status: 'not-started',
       assignedDate: `2025-10-30`,
@@ -48,7 +47,6 @@ export class CrmAssignments {
     {
       assignmentId: 2,
       assignmentTo: ['Tarun Garg', 'Ashish Sharma'],
-      metric: 'M1',
       site: 'S1',
       status: 'completed',
       assignedDate: '2025-10-29',
@@ -88,7 +86,6 @@ export class CrmAssignments {
         headerName: this.tableContent.headers[1],
         filter: true,
       },
-      { field: 'metric', headerName: this.tableContent.headers[2], filter: true },
       { field: 'site', headerName: this.tableContent.headers[3], filter: true },
       {
         field: 'status',
