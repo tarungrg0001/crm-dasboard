@@ -4,7 +4,6 @@ export class Assignment {
     public status: string,
     public assignedBy: string,
     public assignedOn: Date,
-    public metrics: string[],
     public site: string,
     public assignedTo?: string[],
     public dueOn?: Date,

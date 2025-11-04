@@ -10,12 +10,13 @@
   justify-content: space-between;
   margin: 0 24px;
   flex-direction: row;
+  gap: 40px;
 }
 .card {
   border-radius: 16px;
   background-color: var(--color-success-bg);
   height: 120px;
-  width: 270px;
+  width: 100%;
   padding: 20px;
 }
 
@@ -45,6 +46,7 @@
 
 .card-footer {
   font-size: 10px;
+  text-align: end;
   color: var(--color-text-primary);
 
   .precent {

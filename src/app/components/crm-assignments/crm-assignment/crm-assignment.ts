@@ -43,11 +43,10 @@ export class CrmAssignment {
   public assignmentContent!: any;
   public show = signal<boolean>(false);
   public heading!: string;
-  public metricsList: string[] = [];
   public assignedToList: string[] = [];
   public selectedSite!: string;
   private myGridApi!: GridApi;
-  private gridModalOpenBy: 'metrics' | 'site' | 'assignedTo' | undefined;
+  private gridModalOpenBy: 'site' | 'assignedTo' | undefined;
 
   public rowSelection: RowSelectionOptions = { mode: 'multiRow' };
   public readonly colDef: ColDef[] = [{ field: 'name', flex: 1, resizable: false }];
@@ -58,7 +57,6 @@ export class CrmAssignment {
     'not-started',
     '',
     new Date(),
-    [],
     '',
     [],
     new Date(),
@@ -77,18 +75,11 @@ export class CrmAssignment {
     this.savedData = form.value;
   }
 
-  public setupGrid(usedBy: 'metrics' | 'site' | 'assignedTo') {
+  public setupGrid(usedBy: 'site' | 'assignedTo') {
     this.gridModalOpenBy = usedBy;
     this.rowSelection = usedBy === 'site' ? { mode: 'singleRow' } : { mode: 'multiRow' };
     this.heading = `Select ${usedBy !== 'assignedTo' ? usedBy : 'Users'}`;
-    if (usedBy === 'metrics') {
-      this.data = [
-        { name: 'Metric 1' },
-        { name: 'Metric 2' },
-        { name: 'Metric 3' },
-        { name: 'Metric 4' },
-      ];
-    } else if (usedBy === 'assignedTo') {
+    if (usedBy === 'assignedTo') {
       this.data = [{ name: 'Tarun Garg' }, { name: 'Ashish Sharma' }];
     } else {
       this.data = [{ name: 'Site 1' }, { name: 'Site 2' }];
@@ -106,9 +97,7 @@ export class CrmAssignment {
 
   public closeGrid(action: string) {
     if (action === 'save') {
-      if (this.gridModalOpenBy === 'metrics') {
-        this.assignment.metrics = this.myGridApi.getSelectedRows().map((row) => row.name);
-      } else if (this.gridModalOpenBy === 'assignedTo') {
+      if (this.gridModalOpenBy === 'assignedTo') {
         this.assignment.assignedTo = this.myGridApi.getSelectedRows().map((row) => row.name);
       } else if (this.gridModalOpenBy === 'site') {
         this.assignment.site = this.myGridApi.getSelectedRows()[0].name;

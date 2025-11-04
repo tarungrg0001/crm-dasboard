@@ -5,7 +5,7 @@
   },
   "navBar": {
     "navigation": "Navigation",
-    "navigationOptions": ["Dashboard", "Assignments", "Users", "Sites", "Metrics", "Analytics"],
+    "navigationOptions": ["Dashboard", "Assignments", "Users", "Sites", "Analytics"],
     "admin": "Admin",
     "adminOptions": ["Notifications", "Settings"],
     "darkMode": "Dark Mode"
@@ -13,7 +13,7 @@
   "dashboard": {
     "dashboard": "Dashboard",
     "card": {
-      "headingOptions": ["Users", "Active Sites", "Assignments", "ESG Metrics"],
+      "headingOptions": ["Users", "Active Sites", "Assignments"],
       "footer": "vs last month"
     }
   },
@@ -22,7 +22,7 @@
     "export": "Export",
     "createAssignment": "Create assignment",
     "bulkAssignment": " Bulk assignment",
-    "search": "Search user, sites or metrics",
+    "search": "Search user, sites",
     "table": {
       "statuses": {
         "notStarted": "not-started",
@@ -32,7 +32,6 @@
       "headers": [
         "Assignment Id",
         "Assigned To",
-        "Metric",
         "Site",
         "Status",
         "Assigned date",
@@ -56,7 +55,6 @@
         "Email Id",
         "Assignments",
         "Sites Assigned",
-        "Metrics Assigned",
         "Contact",
         "Action"
       ]
@@ -69,7 +67,6 @@
     "assignedTo": "Assigned to",
     "assignedOn": "Assigned on",
     "dueOn": "Due on",
-    "metrics": "Metrics",
     "site": "Site",
     "description": "Description",
     "back": "Back",

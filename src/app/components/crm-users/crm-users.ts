@@ -90,11 +90,6 @@ export class CrmUsers {
         filter: 'agNumberColumnFilter',
       },
       {
-        field: 'metricsAssigned',
-        headerName: this.userContent.table.headers[5],
-        filter: 'agNumberColumnFilter',
-      },
-      {
         field: 'contact',
         headerName: this.userContent.table.headers[6],
         filter: true,

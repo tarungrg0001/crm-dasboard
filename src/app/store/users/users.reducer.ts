@@ -10,7 +10,6 @@ const initialState: User[] = [
     email: 'tarun@fake.com',
     assignments: 6,
     sitesAssigned: 12,
-    metricsAssigned: 20,
     contact: 9876543210,
   },
 ];
