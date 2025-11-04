@@ -14,9 +14,10 @@
             id="name"
             name="name"
             class="form-input"
+            [readonly]="mode === 'view'"
             [ngClass]="{
               danger: name.invalid && name.touched,
-              success: name.valid && name.touched
+              success: name.valid && name.touched && mode !== 'view'
             }"
             [(ngModel)]="user.name"
             required=""
@@ -36,11 +37,12 @@
           <input
             type="email"
             class="form-input"
+            [readonly]="mode === 'view'"
             name="email"
             id="email"
             [ngClass]="{
               danger: email.invalid && email.touched,
-              success: email.valid && email.touched
+              success: email.valid && email.touched && mode !== 'view'
             }"
             [(ngModel)]="user.email"
             required=""
@@ -58,35 +60,37 @@
 
       <div class="half-row">
         <div class="label">
-          <label for="mobile">{{ userContent.mobile }}</label>
+          <label for="contact">{{ userContent.contact }}</label>
         </div>
         <div class="input-wrapper" crmTooltip="'ssss'">
           <input
             type="number"
-            class="form-input mobile"
+            class="form-input contact"
+            [readonly]="mode === 'view'"
             [ngClass]="{
-              danger: mobile.invalid && mobile.touched,
-              success: mobile.valid && mobile.touched
+              danger: contact.invalid && contact.touched,
+              success: contact.valid && contact.touched && mode !== 'view'
             }"
-            name="mobile"
-            id="mobile"
-            [(ngModel)]="user.mobile"
+            name="contact"
+            id="contact"
+            [(ngModel)]="user.contact"
             required=""
-            #mobile="ngModel"
+            #contact="ngModel"
             pattern="^[0-9]{10}$"
             inputmode="numeric"
-            title="Enter a 10-digit mobile number"
+            title="Enter a 10-digit contact number"
           />
-          @if(mobile.invalid && mobile.touched){ @if(mobile?.errors?.['required'] ){
-          <small class="error">{{ userContent.errors?.mobileRequired }}</small>
-          } @else if(mobile?.errors?.['pattern']){
-          <small class="error">{{ userContent.errors?.mobileIncorrect }}</small>
+          @if(contact.invalid && contact.touched){ @if(contact?.errors?.['required'] ){
+          <small class="error">{{ userContent.errors?.contactRequired }}</small>
+          } @else if(contact?.errors?.['pattern']){
+          <small class="error">{{ userContent.errors?.contactIncorrect }}</small>
           }}
         </div>
       </div>
     </div>
     <div class="button-group footer">
-      <button class="btn" type="button" routerLink="../">{{ userContent.back }}</button>
+      <button class="btn" type="button" routerLink="/users">{{ userContent.back }}</button>
+      @if(mode !== 'view'){
       <button class="btn btn-danger" type="reset" (click)="userForm.resetForm()">
         {{ userContent.reset }}
       </button>
@@ -98,6 +102,7 @@
       >
         {{ userContent.save }}
       </button>
+      }
     </div>
   </form>
 </div>

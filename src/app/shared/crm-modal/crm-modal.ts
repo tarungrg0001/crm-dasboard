@@ -11,10 +11,9 @@ import { faClose } from '@fortawesome/free-solid-svg-icons';
 export class CrmModal {
   public readonly closeIcon = faClose;
   public heading = input<string>();
+  public buttonName = input<string>('Save');
 
-  @Output() public buttonClicked: EventEmitter<'save' | 'cancel'> = new EventEmitter<
-    'save' | 'cancel'
-  >();
+  @Output() public buttonClicked: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {}
 }

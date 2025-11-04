@@ -6,13 +6,14 @@ import {
   faQuestionCircle,
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
+
 import { Resource } from '../../services/resource';
-import { CrmInput } from '../../shared/crm-input/crm-input';
+// import { CrmInput } from '../../shared/crm-input/crm-input';
 import { CrmDropdown } from '../../shared/crm-dropdown/crm-dropdown';
 
 @Component({
   selector: 'crm-header',
-  imports: [FontAwesomeModule, CrmInput, CrmDropdown],
+  imports: [FontAwesomeModule, CrmDropdown],
   templateUrl: 'crm-header.html',
   styleUrls: ['crm-header.scss'],
 })

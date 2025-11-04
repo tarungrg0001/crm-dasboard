@@ -1,48 +1,100 @@
 {
   "header": {
-    "search": "Suche",
+    "search": "Suchen",
     "helpCentre": "Hilfezentrum"
   },
   "navBar": {
     "navigation": "Navigation",
-    "navigationOptions": [
-      "Dashboard",
-      "Aufgaben",
-      "Benutzer",
-      "Standorte",
-      "Kennzahlen",
-      "Analytik"
-    ],
-    "admin": "Administrator",
+    "navigationOptions": ["Dashboard", "Aufgaben", "Benutzer", "Standorte", "Metriken", "Analytik"],
+    "admin": "Admin",
     "adminOptions": ["Benachrichtigungen", "Einstellungen"],
     "darkMode": "Dunkelmodus"
   },
   "dashboard": {
     "dashboard": "Dashboard",
     "card": {
-      "headingOptions": ["Benutzer", "Aktive Standorte", "Aufgaben", "ESG-Kennzahlen"],
+      "headingOptions": ["Benutzer", "Aktive Standorte", "Aufgaben", "ESG-Metriken"],
       "footer": "im Vergleich zum letzten Monat"
     }
   },
   "assignments": {
-    "assignments": "Zuweisungen",
+    "assignments": "Aufgaben",
     "export": "Exportieren",
-    "createAssignment": "Zuweisung erstellen",
-    "bulkAssignment": "Massen-Zuweisung",
-    "search": "Benutzer, Standorte oder Kennzahlen suchen",
+    "createAssignment": "Aufgabe erstellen",
+    "bulkAssignment": "Massenaufgabe",
+    "search": "Benutzer, Standorte oder Metriken suchen",
     "table": {
-      "sortby": "Sortieren nach",
-      "all": "Alle",
+      "statuses": {
+        "notStarted": "nicht-begonnen",
+        "inProgress": "in-bearbeitung",
+        "completed": "abgeschlossen"
+      },
       "headers": [
-        "Zuweisungs-ID",
+        "Aufgaben-ID",
         "Zugewiesen an",
-        "Kennzahl",
+        "Metrik",
         "Standort",
         "Status",
-        "Zuweisungsdatum",
-        "Fälligkeitsdatum",
+        "Zugewiesen am",
+        "Fällig am",
         "Aktion"
       ]
+    }
+  },
+  "users": {
+    "heading": "Benutzer",
+    "export": "Exportieren",
+    "search": "Benutzer suchen",
+    "createUser": "Neuen Benutzer erstellen",
+    "deleteUser": "Benutzer löschen",
+    "deleteBody": "Sind Sie sicher, dass Sie löschen möchten?",
+    "delete": "Löschen",
+    "table": {
+      "headers": [
+        "Benutzer-ID",
+        "Name",
+        "E-Mail-ID",
+        "Aufgaben",
+        "Zugewiesene Standorte",
+        "Zugewiesene Metriken",
+        "Kontakt",
+        "Aktion"
+      ]
+    }
+  },
+  "assignment": {
+    "createAssignment": "Aufgabe erstellen",
+    "status": "Status",
+    "assignedBy": "Zugewiesen von",
+    "assignedTo": "Zugewiesen an",
+    "assignedOn": "Zugewiesen am",
+    "dueOn": "Fällig am",
+    "metrics": "Metriken",
+    "site": "Standort",
+    "description": "Beschreibung",
+    "back": "Zurück",
+    "reset": "Zurücksetzen",
+    "save": "Speichern",
+    "statuses": {
+      "notStarted": "nicht-begonnen",
+      "inProgress": "in-bearbeitung",
+      "completed": "abgeschlossen"
+    }
+  },
+  "user": {
+    "createUser": "Benutzer erstellen",
+    "name": "Name",
+    "email": "E-Mail",
+    "contact": "Kontakt",
+    "back": "Zurück",
+    "reset": "Zurücksetzen",
+    "save": "Speichern",
+    "errors": {
+      "nameRequired": "Name ist ein Pflichtfeld",
+      "emailRequired": "E-Mail ist ein Pflichtfeld",
+      "emailIncorrect": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+      "contactRequired": "Kontakt ist ein Pflichtfeld",
+      "contactIncorrect": "Kontaktnummer muss 10-stellig sein"
     }
   }
 }

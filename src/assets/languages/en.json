@@ -46,6 +46,9 @@
     "export": "Export",
     "search": "Search users",
     "createUser": "Create new user",
+    "deleteUser": "Delete User",
+    "deleteBody": "Are you sure you want to delete?",
+    "delete": "Delete",
     "table": {
       "headers": [
         "User Id",
@@ -54,7 +57,8 @@
         "Assignments",
         "Sites Assigned",
         "Metrics Assigned",
-        "Contact"
+        "Contact",
+        "Action"
       ]
     }
   },
@@ -81,7 +85,7 @@
     "createUser": "Create User",
     "name": "Name",
     "email": "Email",
-    "mobile": "Contact",
+    "contact": "Contact",
     "back": "Back",
     "reset": "Reset",
     "save": "Save",
@@ -89,8 +93,8 @@
       "nameRequired": "Name is required field",
       "emailRequired": "Email is required field",
       "emailIncorrect": "Please provide correct email address",
-      "mobileRequired": "Contact number is a required field",
-      "mobileIncorrect": "Contact number should have 10 digits"
+      "contactRequired": "Contact number is a required field",
+      "contactIncorrect": "Contact number should have 10 digits"
     }
   }
 }

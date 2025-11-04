@@ -25,6 +25,7 @@ export const routes: Routes = [
         component: CrmUsers,
       },
       { path: 'user', component: CrmUser },
+      { path: 'user/:id', component: CrmUser },
     ],
   },
 ];
