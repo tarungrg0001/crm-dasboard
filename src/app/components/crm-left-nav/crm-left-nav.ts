@@ -14,8 +14,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Resource } from '../../services/resource';
+
 import * as Constants from '../../../assets/constants.json';
+import { Resource } from '../../core/services/resource';
 
 @Component({
   selector: 'crm-left-nav',

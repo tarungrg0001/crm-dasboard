@@ -6,11 +6,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 
-import { Resource } from '../../../services/resource';
 import { createUser } from '../../../store/users/users.actions';
 import { User } from '../../../model/user';
 import { getUsers } from '../../../store/users/users.selector';
-import { UserService } from '../../../services/user/user';
+import { Resource } from '../../../core/services/resource';
+import { UserService } from '../../../core/services/user/user';
 
 @Component({
   selector: 'crm-crm-user',
@@ -36,11 +36,10 @@ export class CrmUser implements OnInit {
   private _activatedRoute = inject(ActivatedRoute);
   private _resource = inject(Resource);
   private _userService = inject(UserService);
-  private _store = inject(Store<{ users: User[] }>);
 
   constructor() {
-    this._store.select(getUsers).subscribe((res) => {
-      this.noOfUsers = res.length;
+    this._userService.getUsersLength().subscribe((res) => {
+      this.noOfUsers = res;
     });
     effect(() => {
       this.userContent = this._resource.content().user;
@@ -65,7 +64,7 @@ export class CrmUser implements OnInit {
       assignments: 0,
       ...form.value,
     };
-    this._store.dispatch(createUser({ value: user }));
+    this._userService.addUser(user);
     form.reset();
   }
 }

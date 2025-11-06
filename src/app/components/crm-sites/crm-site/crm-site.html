@@ -1,0 +1,266 @@
+<div class="px-24 py-24">
+  <div class="header-container site-header">
+    <h2 class="label">{{ siteContent.heading }}</h2>
+  </div>
+  <form [formGroup]="siteForm" (ngSubmit)="onSubmit()">
+    <div class="form-container">
+      <div class="form-group">
+        <label class="form-label label" for="organisation">{{
+          siteContent.organisationName
+        }}</label>
+        <div class="input-wrapper">
+          <input
+            class="form-input"
+            [ngClass]="{
+              danger:
+                siteForm.get('organisation')!.invalid && siteForm.get('organisation')!.touched,
+              success:
+                siteForm.get('organisation')!.valid &&
+                siteForm.get('organisation')!.touched &&
+                mode !== 'view'
+            }"
+            type="text"
+            id="organisation"
+            formControlName="organisation"
+          />
+          @if (siteForm.get('organisation')!.invalid && siteForm.get('organisation')!.touched ) {
+          @if(siteForm.get('organisation')?.errors?.['required'] ){
+          <small class="error">{{ siteContent.errors?.required }}</small>
+          } @else if(siteForm.get('organisation')?.errors?.['minlength'] ||
+          siteForm.get('organisation')?.errors?.['maxlength']){
+          <small class="error">{{ siteContent.errors?.['len3To20'] }}</small>
+          }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label label" for="siteName">{{ siteContent.siteName }}</label>
+        <div class="input-wrapper">
+          <input
+            class="form-input"
+            [ngClass]="{
+              danger: siteForm.get('siteName')!.invalid && siteForm.get('siteName')!.touched,
+              success:
+                siteForm.get('siteName')!.valid &&
+                siteForm.get('siteName')!.touched &&
+                mode !== 'view'
+            }"
+            type="text"
+            id="siteName"
+            formControlName="siteName"
+          />
+          @if (siteForm.get('siteName')!.invalid && siteForm.get('siteName')!.touched ) {
+          @if(siteForm.get('siteName')?.errors?.['required'] ){
+          <small class="error">{{ siteContent.errors?.required }}</small>
+          } @else if(siteForm.get('siteName')?.errors?.['minlength'] ||
+          siteForm.get('siteName')?.errors?.['maxlength']){
+          <small class="error">{{ siteContent.errors?.len3To8 }}</small>
+          }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label label" for="ownerName">{{ siteContent.ownerName }}</label>
+        <div class="input-wrapper">
+          <input
+            class="form-input"
+            [ngClass]="{
+              danger: siteForm.get('ownerName')!.invalid && siteForm.get('ownerName')!.touched,
+              success:
+                siteForm.get('ownerName')!.valid &&
+                siteForm.get('ownerName')!.touched &&
+                mode !== 'view'
+            }"
+            type="text"
+            id="ownerName"
+            formControlName="ownerName"
+          />
+          @if (siteForm.get('ownerName')!.invalid && siteForm.get('ownerName')!.touched ) {
+          @if(siteForm.get('ownerName')?.errors?.['required'] ){
+          <small class="error">{{ siteContent.errors?.required }}</small>
+          } @else if(siteForm.get('ownerName')?.errors?.['minlength'] ||
+          siteForm.get('ownerName')?.errors?.['maxlength']){
+          <small class="error">{{ siteContent.errors?.len3To20 }}</small>
+          }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label label" for="contact">{{ siteContent.contact }} </label>
+        <div class="input-wrapper">
+          <input
+            class="form-input"
+            [ngClass]="{
+              danger: siteForm.get('contact')!.invalid && siteForm.get('contact')!.touched,
+              success:
+                siteForm.get('contact')!.valid &&
+                siteForm.get('contact')!.touched &&
+                mode !== 'view'
+            }"
+            type="number"
+            id="contact"
+            formControlName="contact"
+          />
+          @if (siteForm.get('contact')!.invalid && siteForm.get('contact')!.touched ) {
+          @if(siteForm.get('ownerName')?.errors?.['required']){
+          <small class="error">{{ siteContent.errors?.required }}</small>
+          } @else if(siteForm.get('contact')?.errors?.['pattern']){
+          <small class="error">{{ siteContent.errors?.contactIncorrect }}</small>
+          }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label label" for="email">{{ siteContent.email }} </label>
+        <div class="input-wrapper">
+          <input
+            class="form-input"
+            [ngClass]="{
+              danger: siteForm.get('email')!.invalid && siteForm.get('email')!.touched,
+              success:
+                siteForm.get('email')!.valid && siteForm.get('email')!.touched && mode !== 'view'
+            }"
+            type="text"
+            id="email"
+            formControlName="email"
+          />
+          @if (siteForm.get('email')!.invalid && siteForm.get('email')!.touched ) {
+          @if(siteForm.get('email')?.errors?.['required']){
+          <small class="error">{{ siteContent.errors?.required }}</small>
+          } @else if(siteForm.get('email')?.errors?.['pattern']){
+          <small class="error">{{ siteContent.errors?.emailIncorrect }}</small>
+          }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label label" for="address">{{ siteContent.address }} </label>
+        <div class="input-wrapper">
+          <input
+            class="form-input"
+            [ngClass]="{
+              danger: siteForm.get('address')!.invalid && siteForm.get('address')!.touched,
+              success:
+                siteForm.get('address')!.valid &&
+                siteForm.get('address')!.touched &&
+                mode !== 'view'
+            }"
+            type="text"
+            id="address"
+            formControlName="address"
+          />
+          @if (siteForm.get('address')!.invalid && siteForm.get('address')!.touched ) {
+          @if(siteForm.get('address')?.errors?.['required']){
+          <small class="error">{{ siteContent.errors?.required }}</small>
+          } @else if(siteForm.get('address')?.errors?.['minlength'] ||
+          siteForm.get('address')?.errors?.['maxlength']){
+          <small class="error">{{ siteContent.errors?.len3To20 }}</small>
+          }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label label" for="city">{{ siteContent.city }} </label>
+        <div class="input-wrapper">
+          <input
+            class="form-input"
+            [ngClass]="{
+              danger: siteForm.get('city')!.invalid && siteForm.get('city')!.touched,
+              success:
+                siteForm.get('city')!.valid && siteForm.get('city')!.touched && mode !== 'view'
+            }"
+            type="text"
+            id="city"
+            formControlName="city"
+          />
+          @if (siteForm.get('city')!.invalid && siteForm.get('city')!.touched ) {
+          @if(siteForm.get('city')?.errors?.['required']){
+          <small class="error">{{ siteContent.errors?.required }}</small>
+          } @else if(siteForm.get('city')?.errors?.['minlength'] ||
+          siteForm.get('city')?.errors?.['maxlength']){
+          <small class="error">{{ siteContent.errors?.len3To20 }}</small>
+          }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label label" for="district">{{ siteContent.district }} </label>
+        <div class="input-wrapper">
+          <input
+            class="form-input"
+            [ngClass]="{
+              danger: siteForm.get('district')!.invalid && siteForm.get('district')!.touched,
+              success:
+                siteForm.get('district')!.valid &&
+                siteForm.get('district')!.touched &&
+                mode !== 'view'
+            }"
+            type="text"
+            id="district"
+            formControlName="district"
+          />
+          @if (siteForm.get('district')!.invalid && siteForm.get('district')!.touched ) {
+          @if(siteForm.get('district')?.errors?.['required']){
+          <small class="error">{{ siteContent.errors?.required }}</small>
+          } @else if(siteForm.get('district')?.errors?.['minlength'] ||
+          siteForm.get('district')?.errors?.['maxlength']){
+          <small class="error">{{ siteContent.errors?.len3To20 }}</small>
+          }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label label" for="state">{{ siteContent.state }} </label>
+        <div class="input-wrapper">
+          <input
+            class="form-input"
+            [ngClass]="{
+              danger: siteForm.get('state')!.invalid && siteForm.get('state')!.touched,
+              success:
+                siteForm.get('state')!.valid && siteForm.get('state')!.touched && mode !== 'view'
+            }"
+            type="text"
+            id="state"
+            formControlName="state"
+          />
+          @if (siteForm.get('state')!.invalid && siteForm.get('state')!.touched ) {
+          @if(siteForm.get('state')?.errors?.['required']){
+          <small class="error">{{ siteContent.errors?.required }}</small>
+          } @else if(siteForm.get('state')?.errors?.['minlength'] ||
+          siteForm.get('state')?.errors?.['maxlength']){
+          <small class="error">{{ siteContent.errors?.len3To20 }}</small>
+          }}
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label label" for="pin">{{ siteContent.pin }} </label>
+        <div class="input-wrapper">
+          <input
+            class="form-input"
+            [ngClass]="{
+              danger: siteForm.get('pin')!.invalid && siteForm.get('pin')!.touched,
+              success: siteForm.get('pin')!.valid && siteForm.get('pin')!.touched && mode !== 'view'
+            }"
+            type="number"
+            id="pin"
+            formControlName="pin"
+          />
+          @if (siteForm.get('pin')!.invalid && siteForm.get('pin')!.touched ) {
+          @if(siteForm.get('pin')?.errors?.['required']){
+          <small class="error">{{ siteContent.errors?.required }}</small>
+          } @else if(siteForm.get('pin')?.errors?.['pattern']){
+          <small class="error">{{ siteContent.errors?.pinIncorrect }}</small>
+          }}
+        </div>
+      </div>
+    </div>
+    <div class="button-group footer">
+      <button class="btn" type="button" routerLink="/users">{{ siteContent.back }}</button>
+      @if(mode !== 'view'){
+      <button class="btn btn-danger" type="reset" (click)="siteForm.reset()">
+        {{ siteContent.reset }}
+      </button>
+      <button
+        class="btn btn-success"
+        [ngClass]="siteForm.invalid ? 'disabled' : ''"
+        [disabled]="siteForm.invalid"
+        type="submit"
+      >
+        {{ siteContent.save }}
+      </button>
+      }
+    </div>
+  </form>
+</div>

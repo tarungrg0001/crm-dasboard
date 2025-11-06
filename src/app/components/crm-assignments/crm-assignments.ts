@@ -1,5 +1,6 @@
 import { CommonModule, DatePipe } from '@angular/common';
 import { Component, effect } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { faMagnifyingGlass, faPlus, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AgGridAngular } from 'ag-grid-angular';
@@ -11,11 +12,10 @@ import {
   GridApi,
 } from 'ag-grid-community';
 
-import { Resource } from '../../services/resource';
 import { CrmBadgeRenderer } from '../../shared/crm-badge/crm-badge-renderer';
 import { CrmActionRenderer } from '../../shared/tables/crm-action-renderer/crm-action-renderer';
 import { CrmInput } from '../../shared/crm-input/crm-input';
-import { RouterLink } from '@angular/router';
+import { Resource } from '../../core/services/resource';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 

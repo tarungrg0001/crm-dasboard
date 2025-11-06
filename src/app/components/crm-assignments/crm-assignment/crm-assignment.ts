@@ -3,11 +3,6 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faChevronDown, faClose, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
-import { Resource } from '../../../services/resource';
-import { CrmDropdown } from '../../../shared/crm-dropdown/crm-dropdown';
-import { Assignment } from '../../../model/assignment';
-import { CrmBadgeControlComponent } from '../../../shared/crm-badge-form-control-wrapper/crm-badge-form-control-wrapper';
-import { CrmModal } from '../../../shared/crm-modal/crm-modal';
 import { AgGridAngular } from 'ag-grid-angular';
 import {
   AllCommunityModule,
@@ -17,7 +12,13 @@ import {
   ModuleRegistry,
   RowSelectionOptions,
 } from 'ag-grid-community';
+
+import { CrmDropdown } from '../../../shared/crm-dropdown/crm-dropdown';
+import { Assignment } from '../../../model/assignment';
+import { CrmBadgeControlComponent } from '../../../shared/crm-badge-form-control-wrapper/crm-badge-form-control-wrapper';
+import { CrmModal } from '../../../shared/crm-modal/crm-modal';
 import { CrmButtonBadgeControl } from '../../../shared/crm-button-badge-form-control/crm-button-badge-form-control';
+import { Resource } from '../../../core/services/resource';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 

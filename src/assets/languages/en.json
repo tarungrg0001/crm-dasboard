@@ -93,5 +93,29 @@
       "contactRequired": "Contact number is a required field",
       "contactIncorrect": "Contact number should have 10 digits"
     }
+  },
+  "site": {
+    "heading": "Create Site",
+    "organisationName": "Organisation Name",
+    "siteName": "Site Name",
+    "ownerName": "Owner Name",
+    "contact": "Contact",
+    "email": "Email",
+    "address": "Address",
+    "city": "City",
+    "district": "District",
+    "state": "State",
+    "pin": "Pin Code",
+    "back": "Back",
+    "reset": "Reset",
+    "save": "Save",
+    "errors": {
+      "required": "This is a required field",
+      "len3To20": "Length should be between 3 and 20",
+      "len3To8": "Length should be between 3 and 8",
+      "contactIncorrect": "Contact number should have 10 digits",
+      "pinIncorrect": "Pin code should have 6 digits",
+      "emailIncorrect": "Please provide correct email address"
+    }
   }
 }
