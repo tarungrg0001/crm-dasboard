@@ -34,6 +34,7 @@ export const routes: Routes = [
     children: [
       { path: '', pathMatch: 'full', component: CrmSites },
       { path: 'site', component: CrmSite },
+      { path: 'site/:id', component: CrmSite },
     ],
   },
 ];

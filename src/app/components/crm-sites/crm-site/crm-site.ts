@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, effect, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 import { Resource } from '../../../core/services/resource';
 import { SiteService } from '../../../core/services/site';
+import { Site } from '../../../model/site';
 
 @Component({
   selector: 'crm-crm-site',
@@ -17,14 +18,24 @@ export class CrmSite implements OnInit {
   public siteContent: any;
   public mode: string = '';
   public noOfSites!: number;
+  public id!: number;
 
   private _resource = inject(Resource);
   private _siteService = inject(SiteService);
+  private _activatedRoute = inject(ActivatedRoute);
 
   constructor() {
     effect(() => {
       this.siteContent = this._resource.content().site;
     });
+    this.checkMode();
+  }
+
+  private checkMode() {
+    this.id = +this._activatedRoute.snapshot.params['id'];
+    if (this.id) {
+      this.mode = this._activatedRoute.snapshot.queryParams['mode'];
+    }
   }
 
   public ngOnInit(): void {
@@ -51,6 +62,14 @@ export class CrmSite implements OnInit {
       state: new FormControl('', this.lengthValidator(3, 20)),
       pin: new FormControl('', this.patternValidator('^[0-9]{6}$')),
     });
+    if (this.id) {
+      this._siteService.getSite(this.id).subscribe((res: any) => {
+        this.siteForm.setValue(res);
+        if (this.mode === 'view') {
+          this.siteForm.disable();
+        }
+      });
+    }
   }
 
   public onSubmit() {

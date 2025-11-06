@@ -100,6 +100,7 @@ export class CrmUsers {
         headerName: this.userContent.table.headers[7],
         resizable: false,
         cellRenderer: CrmActionRenderer,
+        cellRendererParams: { page: 'user' },
       },
     ];
   }

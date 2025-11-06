@@ -5,6 +5,10 @@ import { ICellRendererAngularComp } from 'ag-grid-angular';
 import { ICellRendererParams } from 'ag-grid-community';
 import { RouterLink } from '@angular/router';
 
+interface ActionCellRendererParams extends ICellRendererParams {
+  page: string;
+}
+
 @Component({
   selector: 'crm-action-renderer',
   templateUrl: 'crm-action-renderer.html',
@@ -17,13 +21,15 @@ export class CrmActionRenderer implements ICellRendererAngularComp {
   public garbageIcon = faTrash;
   public id!: number;
   private params: any;
+  public page!: string;
 
-  public agInit(params: ICellRendererParams<any, any, any>): void {
+  public agInit(params: ActionCellRendererParams): void {
     this.params = params;
     this.id = params.data.id;
+    this.page = params.page;
   }
 
-  public refresh(params: ICellRendererParams<any, any, any>): boolean {
+  public refresh(params: ActionCellRendererParams): boolean {
     return true;
   }
 

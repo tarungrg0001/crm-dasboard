@@ -117,5 +117,12 @@
       "pinIncorrect": "Pin code should have 6 digits",
       "emailIncorrect": "Please provide correct email address"
     }
+  },
+  "sites": {
+    "heading": "Sites",
+    "export": "Export",
+    "create": "Create site",
+    "search": "Search site",
+    "table": { "headers": ["Site Name", "Owner", "Email Id", "Contact", "Organisation", "Action"] }
   }
 }
