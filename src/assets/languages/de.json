@@ -21,11 +21,11 @@
     "assignments": "Aufgaben",
     "export": "Exportieren",
     "createAssignment": "Aufgabe erstellen",
-    "bulkAssignment": "Massenaufgabe",
-    "search": "Benutzer oder Standorte suchen",
+    "bulkAssignment": " Massenaufgabe",
+    "search": "Benutzer, Standorte suchen",
     "table": {
       "statuses": {
-        "notStarted": "nicht-begonnen",
+        "notStarted": "nicht-gestartet",
         "inProgress": "in-bearbeitung",
         "completed": "abgeschlossen"
       },
@@ -34,8 +34,8 @@
         "Zugewiesen an",
         "Standort",
         "Status",
-        "Zugewiesen am",
-        "Fällig am",
+        "Zuweisungsdatum",
+        "Fälligkeitsdatum",
         "Aktion"
       ]
     }
@@ -52,7 +52,7 @@
       "headers": [
         "Benutzer-ID",
         "Name",
-        "E-Mail-ID",
+        "E-Mail-Adresse",
         "Aufgaben",
         "Zugewiesene Standorte",
         "Kontakt",
@@ -73,7 +73,7 @@
     "reset": "Zurücksetzen",
     "save": "Speichern",
     "statuses": {
-      "notStarted": "nicht-begonnen",
+      "notStarted": "nicht-gestartet",
       "inProgress": "in-bearbeitung",
       "completed": "abgeschlossen"
     }
@@ -91,7 +91,47 @@
       "emailRequired": "E-Mail ist ein Pflichtfeld",
       "emailIncorrect": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
       "contactRequired": "Kontaktnummer ist ein Pflichtfeld",
-      "contactIncorrect": "Kontaktnummer muss 10 Stellen haben"
+      "contactIncorrect": "Kontaktnummer sollte 10 Ziffern haben"
+    }
+  },
+  "site": {
+    "heading": "Standort erstellen",
+    "organisationName": "Name der Organisation",
+    "siteName": "Standortname",
+    "ownerName": "Eigentümername",
+    "contact": "Kontakt",
+    "email": "E-Mail",
+    "address": "Adresse",
+    "city": "Stadt",
+    "district": "Bezirk",
+    "state": "Bundesland",
+    "pin": "Postleitzahl",
+    "back": "Zurück",
+    "reset": "Zurücksetzen",
+    "save": "Speichern",
+    "errors": {
+      "required": "Dies ist ein Pflichtfeld",
+      "len3To20": "Länge sollte zwischen 3 und 20 liegen",
+      "len3To8": "Länge sollte zwischen 3 und 8 liegen",
+      "contactIncorrect": "Kontaktnummer sollte 10 Ziffern haben",
+      "pinIncorrect": "Postleitzahl sollte 6 Ziffern haben",
+      "emailIncorrect": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+    }
+  },
+  "sites": {
+    "heading": "Standorte",
+    "export": "Exportieren",
+    "create": "Standort erstellen",
+    "search": "Standort suchen",
+    "table": {
+      "headers": [
+        "Standortname",
+        "Eigentümer",
+        "E-Mail-Adresse",
+        "Kontakt",
+        "Organisation",
+        "Aktion"
+      ]
     }
   }
 }

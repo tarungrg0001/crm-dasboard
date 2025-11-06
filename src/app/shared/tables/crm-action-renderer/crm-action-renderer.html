@@ -2,14 +2,17 @@
   <fa-icon
     [icon]="eyeIcon"
     size="sm"
-    [routerLink]="['user', id]"
+    [routerLink]="[page, id]"
     [queryParams]="{ mode: 'view' }"
   ></fa-icon>
   <fa-icon
     [icon]="pencilIcon"
     size="sm"
-    [routerLink]="['user', id]"
+    [routerLink]="[page, id]"
     [queryParams]="{ mode: 'edit' }"
   ></fa-icon>
+  @if(page==='user'){
+
   <fa-icon [icon]="garbageIcon" size="sm" (click)="delete()"></fa-icon>
+  }
 </div>

@@ -9,6 +9,7 @@ import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
 import { provideStore } from '@ngrx/store';
 import { usersReducers } from './store/users/users.reducer';
+import { siteReducer } from './store/sites/sites.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,6 +17,6 @@ export const appConfig: ApplicationConfig = {
     provideZonelessChangeDetection(),
     provideHttpClient(),
     provideRouter(routes),
-    provideStore({ users: usersReducers }),
+    provideStore({ users: usersReducers, sites: siteReducer }),
   ],
 };
