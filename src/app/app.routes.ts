@@ -4,6 +4,8 @@ import { CrmAssignments } from './components/crm-assignments/crm-assignments';
 import { CrmUsers } from './components/crm-users/crm-users';
 import { CrmAssignment } from './components/crm-assignments/crm-assignment/crm-assignment';
 import { CrmUser } from './components/crm-users/crm-user/crm-user';
+import { CrmSites } from './components/crm-sites/crm-sites';
+import { CrmSite } from './components/crm-sites/crm-site/crm-site';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
@@ -15,7 +17,6 @@ export const routes: Routes = [
       { path: 'assignment', component: CrmAssignment },
     ],
   },
-  { path: 'users', component: CrmUsers },
   {
     path: 'users',
     children: [
@@ -26,6 +27,13 @@ export const routes: Routes = [
       },
       { path: 'user', component: CrmUser },
       { path: 'user/:id', component: CrmUser },
+    ],
+  },
+  {
+    path: 'sites',
+    children: [
+      { path: '', pathMatch: 'full', component: CrmSites },
+      { path: 'site', component: CrmSite },
     ],
   },
 ];

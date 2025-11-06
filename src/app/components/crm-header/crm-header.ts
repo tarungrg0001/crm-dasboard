@@ -7,9 +7,9 @@ import {
   faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
 
-import { Resource } from '../../services/resource';
 // import { CrmInput } from '../../shared/crm-input/crm-input';
 import { CrmDropdown } from '../../shared/crm-dropdown/crm-dropdown';
+import { Resource } from '../../core/services/resource';
 
 @Component({
   selector: 'crm-header',

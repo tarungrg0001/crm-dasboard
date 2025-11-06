@@ -1,5 +1,5 @@
 import { Component, effect, inject, signal } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faUpload, faPlus, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { AgGridAngular } from 'ag-grid-angular';
@@ -7,13 +7,13 @@ import { ColDef, GridApi, GridReadyEvent } from 'ag-grid-community';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { Resource } from '../../services/resource';
 import { CrmInput } from '../../shared/crm-input/crm-input';
 import { User } from '../../model/user';
 import { getUsers } from '../../store/users/users.selector';
 import { CrmActionRenderer } from '../../shared/tables/crm-action-renderer/crm-action-renderer';
-import { UserService } from '../../services/user/user';
 import { CrmModal } from '../../shared/crm-modal/crm-modal';
+import { Resource } from '../../core/services/resource';
+import { UserService } from '../../core/services/user/user';
 
 @Component({
   selector: 'crm-crm-users',

@@ -7,7 +7,8 @@ import {
   faRefresh,
   faUsers,
 } from '@fortawesome/free-solid-svg-icons';
-import { Resource } from '../../services/resource';
+
+import { Resource } from '../../core/services/resource';
 
 @Component({
   selector: 'crm-dashboard',

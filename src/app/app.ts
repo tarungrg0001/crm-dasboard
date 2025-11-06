@@ -1,9 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { CrmHeader } from './components/crm-header/crm-header';
-import { CrmLeftNav } from './components/crm-left-nav/crm-left-nav';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { Resource } from './services/resource';
+
+import { CrmHeader } from './components/crm-header/crm-header';
+import { CrmLeftNav } from './components/crm-left-nav/crm-left-nav';
+import { Resource } from './core/services/resource';
 
 @Component({
   selector: 'app-root',

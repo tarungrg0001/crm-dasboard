@@ -1,16 +1,14 @@
-import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { User } from '../../model/user';
-import { getUserById } from '../../store/users/users.selector';
-import { deleteUser } from '../../store/users/users.actions';
+import { User } from '../../../model/user';
+import { createUser, deleteUser } from '../../../store/users/users.actions';
+import { getUserById, noOfUsers } from '../../../store/users/users.selector';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private _http = inject(HttpClient);
   private _store = inject(Store<{ users: User[] }>);
   constructor() {}
 
@@ -20,5 +18,13 @@ export class UserService {
 
   public deleteUser(id: number) {
     this._store.dispatch(deleteUser({ value: id }));
+  }
+
+  public getUsersLength() {
+    return this._store.select(noOfUsers);
+  }
+
+  public addUser(user: User) {
+    this._store.dispatch(createUser({ value: user }));
   }
 }

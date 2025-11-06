@@ -82,10 +82,15 @@ fa-icon {
   }
 }
 
+.form-label {
+  font-size: 14px;
+  color: var(--color-text-primary);
+  font-weight: 300;
+}
+
 .form-input {
   height: 42px;
   width: 100%;
-
   color: var(--color-text-primary);
   background-color: var(--color-neutral-100);
   border-radius: 8px;
@@ -112,4 +117,14 @@ fa-icon {
 small.error {
   margin-left: 5px;
   color: var(--color-error);
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.footer {
+  margin-top: 100px;
 }
