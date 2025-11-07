@@ -11,12 +11,13 @@ import { NameInitials } from './name-initials.pipe';
 export class CrmBadge {
   public badgeType = input<'oval' | 'round'>();
   public badgeStatus = input<string>();
-  public badgeList = input<string[]>();
+  public badgeList = input<string[]>([]);
   public large = input<boolean>(false);
 
   public type?: string;
+  public tooltipContent?: string;
   public status?: string;
-  public list?: string[];
+  public list: string[] = [];
 
   constructor() {
     effect(() => {
@@ -24,7 +25,11 @@ export class CrmBadge {
       if (this.type === 'oval') {
         this.status = this.badgeStatus();
       } else {
-        this.list = this.badgeList();
+        this.list = this.badgeList().slice(0, 3);
+        if (this.badgeList()?.length > 3) {
+          this.list.push(`+${this.badgeList().slice(3).length}`);
+          this.tooltipContent = this.badgeList().slice(3).join(', ');
+        }
       }
     });
   }

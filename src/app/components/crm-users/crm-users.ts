@@ -33,11 +33,9 @@ export class CrmUsers {
   private myGridApi!: GridApi;
 
   public data!: User[];
-  public userList$!: Observable<User[]>;
 
   private _resource = inject(Resource);
   private _userService = inject(UserService);
-  private _store = inject(Store<{ users: User[] }>);
 
   constructor() {
     this.getUsersList();
@@ -47,8 +45,7 @@ export class CrmUsers {
   }
 
   private getUsersList() {
-    this.userList$ = this._store.select(getUsers);
-    this.userList$.subscribe((res) => {
+    this._userService.getUsers().subscribe((res) => {
       this.data = res;
     });
   }

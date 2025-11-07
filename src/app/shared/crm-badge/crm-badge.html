@@ -2,7 +2,9 @@
   @switch (type) { @case('round'){
   <div class="badges">
     @for (item of list; track $index) {
-    <div class="badge" [attr.type]="type">{{ item | nameInitials }}</div>
+    <div class="badge" [attr.type]="type">
+      {{ $index < 3 ? (item | nameInitials) : item }}
+    </div>
     }
   </div>
   } @case ('oval') {

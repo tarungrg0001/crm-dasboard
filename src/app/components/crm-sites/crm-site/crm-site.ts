@@ -5,7 +5,6 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 
 import { Resource } from '../../../core/services/resource';
 import { SiteService } from '../../../core/services/site';
-import { Site } from '../../../model/site';
 
 @Component({
   selector: 'crm-crm-site',

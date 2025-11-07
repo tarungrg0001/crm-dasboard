@@ -1,0 +1,121 @@
+import { createReducer, on } from '@ngrx/store';
+import { addAssignment } from './assignments.action';
+
+const initialState = [
+  {
+    id: 1001,
+    status: 'not-started',
+    assignedOn: '2025-01-10',
+    assignedBy: 'Admin',
+    site: 'Solar Plant A',
+    assignedTo: ['Lucas Meyer', 'David Thompson'],
+    dueOn: '2025-01-20',
+    note: '',
+  },
+  {
+    id: 1002,
+    status: 'in-progress',
+    assignedOn: '2025-01-08',
+    assignedBy: 'System',
+    site: 'Eco Factory Unit 4',
+    assignedTo: ['Elena Fischer'],
+    dueOn: '2025-01-18',
+    note: 'Follow-up required',
+  },
+  {
+    id: 1003,
+    status: 'completed',
+    assignedOn: '2025-01-01',
+    assignedBy: 'Admin',
+    site: 'Cold Storage Plant',
+    assignedTo: ['Giulia Romano', 'Maya Patel'],
+    dueOn: '2025-01-12',
+    note: '',
+  },
+  {
+    id: 1004,
+    status: 'in-progress',
+    assignedOn: '2025-01-12',
+    assignedBy: 'Admin',
+    site: 'Foundry Unit',
+    assignedTo: ['Jonas Berg'],
+    dueOn: '2025-01-25',
+    note: '',
+  },
+  {
+    id: 1005,
+    status: 'not-started',
+    assignedOn: '2025-01-14',
+    assignedBy: 'System',
+    site: 'Greenhouse Block 2',
+    assignedTo: ['Akira Tanaka', 'Ben Carter'],
+    dueOn: '2025-01-29',
+    note: '',
+  },
+  {
+    id: 1006,
+    status: 'completed',
+    assignedOn: '2025-01-02',
+    assignedBy: 'Admin',
+    site: 'Assembly Unit',
+    assignedTo: ['Oliver Hayes'],
+    dueOn: '2025-01-12',
+    note: '',
+  },
+  {
+    id: 1007,
+    status: 'in-progress',
+    assignedOn: '2025-01-11',
+    assignedBy: 'System',
+    site: 'Testing Facility',
+    assignedTo: ['Sofia Almeida', 'Lucas Meyer'],
+    dueOn: '2025-01-21',
+    note: '',
+  },
+  {
+    id: 1008,
+    status: 'not-started',
+    assignedOn: '2025-01-15',
+    assignedBy: 'Admin',
+    site: 'R&D Center',
+    assignedTo: ['Maya Patel'],
+    dueOn: '2025-01-30',
+    note: '',
+  },
+  {
+    id: 1009,
+    status: 'completed',
+    assignedOn: '2024-12-27',
+    assignedBy: 'System',
+    site: 'Water Treatment Plant',
+    assignedTo: ['David Thompson'],
+    dueOn: '2025-01-05',
+    note: '',
+  },
+  {
+    id: 1010,
+    status: 'in-progress',
+    assignedOn: '2025-01-09',
+    assignedBy: 'Admin',
+    site: 'Rolling Mill',
+    assignedTo: ['Giulia Romano', 'Elena Fischer'],
+    dueOn: '2025-01-24',
+    note: 'High priority',
+  },
+];
+
+export const assignmentReducer = createReducer(
+  initialState,
+  on(addAssignment, (state, action) => {
+    return [
+      {
+        ...action.assignment,
+        site: action.assignment.site ?? '',
+        assignedTo: action.assignment.assignedTo ?? [],
+        dueOn: action.assignment.dueOn ?? '',
+        note: action.assignment.note ?? '',
+      },
+      ...state,
+    ];
+  })
+);

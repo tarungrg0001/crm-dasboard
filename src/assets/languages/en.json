@@ -68,7 +68,7 @@
     "assignedOn": "Assigned on",
     "dueOn": "Due on",
     "site": "Site",
-    "description": "Description",
+    "note": "Note",
     "back": "Back",
     "reset": "Reset",
     "save": "Save",
@@ -76,6 +76,9 @@
       "notStarted": "not-started",
       "inProgress": "in-progress",
       "completed": "completed"
+    },
+    "errors": {
+      "required": "This is a required field"
     }
   },
   "user": {

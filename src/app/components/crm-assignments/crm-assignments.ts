@@ -1,5 +1,5 @@
 import { CommonModule, DatePipe } from '@angular/common';
-import { Component, effect } from '@angular/core';
+import { Component, effect, inject, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { faMagnifyingGlass, faPlus, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -16,6 +16,7 @@ import { CrmBadgeRenderer } from '../../shared/crm-badge/crm-badge-renderer';
 import { CrmActionRenderer } from '../../shared/tables/crm-action-renderer/crm-action-renderer';
 import { CrmInput } from '../../shared/crm-input/crm-input';
 import { Resource } from '../../core/services/resource';
+import { AssignmentsService } from '../../core/services/assignments';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -26,7 +27,7 @@ ModuleRegistry.registerModules([AllCommunityModule]);
   templateUrl: './crm-assignments.html',
   styleUrl: './crm-assignments.scss',
 })
-export class CrmAssignments {
+export class CrmAssignments implements OnInit {
   public assignmentContent: any;
   public tableContent: any;
   public readonly uploadIcon = faUpload;
@@ -35,26 +36,11 @@ export class CrmAssignments {
   public searchConfig: any;
   public colDef!: ColDef[];
   public filterArray!: string[];
-  public data = [
-    {
-      assignmentId: 1,
-      assignmentTo: ['Tarun Garg'],
-      site: 'S1',
-      status: 'not-started',
-      assignedDate: `2025-10-30`,
-      dueDate: `2025-11-05`,
-    },
-    {
-      assignmentId: 2,
-      assignmentTo: ['Tarun Garg', 'Ashish Sharma'],
-      site: 'S1',
-      status: 'completed',
-      assignedDate: '2025-10-29',
-      dueDate: '2025-05-10',
-    },
-  ];
+  public data = [];
 
   private myGridApi!: GridApi;
+  private _assignmentService = inject(AssignmentsService);
+
   constructor(private _resource: Resource, private _datePipe: DatePipe) {
     effect(() => {
       this.assignmentContent = this._resource.content().assignments;
@@ -71,18 +57,25 @@ export class CrmAssignments {
     });
   }
 
+  public ngOnInit(): void {
+    this._assignmentService.getAssignments().subscribe((res: any) => {
+      this.data = res;
+    });
+  }
+
   private defineColumns() {
     this.colDef = [
       {
-        field: 'assignmentId',
+        field: 'id',
         headerName: this.tableContent.headers[0],
         filter: true,
         sort: 'desc',
       },
       {
-        field: 'assignmentTo',
+        field: 'assignedTo',
         cellRenderer: CrmBadgeRenderer,
         cellRendererParams: { type: 'round' },
+        valueFormatter: () => '',
         headerName: this.tableContent.headers[1],
         filter: true,
       },
@@ -95,7 +88,7 @@ export class CrmAssignments {
         filter: true,
       },
       {
-        field: 'assignedDate',
+        field: 'assignedOn',
         headerName: this.tableContent.headers[5],
         valueFormatter: (params): string => {
           return this._datePipe.transform(params.value, 'dd/MM/yyyy') ?? '';
@@ -103,7 +96,7 @@ export class CrmAssignments {
         filter: true,
       },
       {
-        field: 'dueDate',
+        field: 'dueOn',
         headerName: this.tableContent.headers[6],
         valueFormatter: (params): string => {
           return this._datePipe.transform(params.value, 'dd/MM/yyyy') ?? '';
@@ -115,6 +108,9 @@ export class CrmAssignments {
         headerName: this.tableContent.headers[7],
         resizable: false,
         cellRenderer: CrmActionRenderer,
+        cellRendererParams: {
+          page: 'assignment',
+        },
       },
     ];
   }

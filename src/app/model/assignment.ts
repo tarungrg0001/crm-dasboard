@@ -1,12 +1,10 @@
-export class Assignment {
-  constructor(
-    public id: number,
-    public status: string,
-    public assignedBy: string,
-    public assignedOn: Date,
-    public site: string,
-    public assignedTo?: string[],
-    public dueOn?: Date,
-    public description?: string
-  ) {}
+export interface Assignment {
+  id: number;
+  status: string;
+  assignedOn: string;
+  assignedBy: string;
+  site?: string;
+  assignedTo?: string[];
+  dueOn?: string;
+  note?: string;
 }
