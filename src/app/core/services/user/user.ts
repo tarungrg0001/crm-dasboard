@@ -3,14 +3,17 @@ import { Store } from '@ngrx/store';
 
 import { User } from '../../../model/user';
 import { createUser, deleteUser } from '../../../store/users/users.actions';
-import { getUserById, noOfUsers } from '../../../store/users/users.selector';
+import { getUserById, getUsers, noOfUsers } from '../../../store/users/users.selector';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   private _store = inject(Store<{ users: User[] }>);
-  constructor() {}
+
+  public getUsers() {
+    return this._store.select(getUsers);
+  }
 
   public getUser(id: number) {
     return this._store.select(getUserById(id));

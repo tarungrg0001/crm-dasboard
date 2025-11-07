@@ -14,18 +14,17 @@
   width: 28px;
   align-content: center;
   text-align: center;
+  position: relative;
   font-size: 10px;
   line-height: 28px;
-
-  background-color: var(--color-surface);
+  background-color: var(--color-neutral-200);
   color: var(--color-text-primary);
-  margin-left: -11px;
+  margin-left: -10px;
 
   &:first-child {
-    margin-left: 0;
     background-color: var(--color-primary-light);
     color: var(--color-primary);
-    left: -10px;
+    margin-left: 0px;
   }
 
   &:nth-child(2) {

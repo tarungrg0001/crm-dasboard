@@ -25,7 +25,7 @@ export class CrmBadgeControlComponent implements ControlValueAccessor {
   public badgeType = input<'oval' | 'round'>();
   public large = input<boolean>(false);
   public badgeStatus = input<string>();
-  public badgeList = input<string[]>();
+  public badgeList = input<string[]>([]);
 
   value: string | string[] | undefined;
 

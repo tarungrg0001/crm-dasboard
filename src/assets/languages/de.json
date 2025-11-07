@@ -5,7 +5,7 @@
   },
   "navBar": {
     "navigation": "Navigation",
-    "navigationOptions": ["Dashboard", "Aufgaben", "Benutzer", "Standorte", "Analytik"],
+    "navigationOptions": ["Dashboard", "Aufträge", "Benutzer", "Standorte", "Analytik"],
     "admin": "Admin",
     "adminOptions": ["Benachrichtigungen", "Einstellungen"],
     "darkMode": "Dunkelmodus"
@@ -13,15 +13,15 @@
   "dashboard": {
     "dashboard": "Dashboard",
     "card": {
-      "headingOptions": ["Benutzer", "Aktive Standorte", "Aufgaben"],
+      "headingOptions": ["Benutzer", "Aktive Standorte", "Aufträge"],
       "footer": "im Vergleich zum letzten Monat"
     }
   },
   "assignments": {
-    "assignments": "Aufgaben",
+    "assignments": "Aufträge",
     "export": "Exportieren",
-    "createAssignment": "Aufgabe erstellen",
-    "bulkAssignment": " Massenaufgabe",
+    "createAssignment": "Auftrag erstellen",
+    "bulkAssignment": " Massenauftrag",
     "search": "Benutzer, Standorte suchen",
     "table": {
       "statuses": {
@@ -30,12 +30,12 @@
         "completed": "abgeschlossen"
       },
       "headers": [
-        "Aufgaben-ID",
+        "Auftrags-ID",
         "Zugewiesen an",
         "Standort",
         "Status",
-        "Zuweisungsdatum",
-        "Fälligkeitsdatum",
+        "Zugewiesen am",
+        "Fällig am",
         "Aktion"
       ]
     }
@@ -52,8 +52,8 @@
       "headers": [
         "Benutzer-ID",
         "Name",
-        "E-Mail-Adresse",
-        "Aufgaben",
+        "E-Mail",
+        "Aufträge",
         "Zugewiesene Standorte",
         "Kontakt",
         "Aktion"
@@ -61,14 +61,14 @@
     }
   },
   "assignment": {
-    "createAssignment": "Aufgabe erstellen",
+    "createAssignment": "Auftrag erstellen",
     "status": "Status",
     "assignedBy": "Zugewiesen von",
     "assignedTo": "Zugewiesen an",
     "assignedOn": "Zugewiesen am",
     "dueOn": "Fällig am",
     "site": "Standort",
-    "description": "Beschreibung",
+    "note": "Notiz",
     "back": "Zurück",
     "reset": "Zurücksetzen",
     "save": "Speichern",
@@ -76,6 +76,9 @@
       "notStarted": "nicht-gestartet",
       "inProgress": "in-bearbeitung",
       "completed": "abgeschlossen"
+    },
+    "errors": {
+      "required": "Dies ist ein Pflichtfeld"
     }
   },
   "user": {
@@ -89,16 +92,16 @@
     "errors": {
       "nameRequired": "Name ist ein Pflichtfeld",
       "emailRequired": "E-Mail ist ein Pflichtfeld",
-      "emailIncorrect": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
-      "contactRequired": "Kontaktnummer ist ein Pflichtfeld",
-      "contactIncorrect": "Kontaktnummer sollte 10 Ziffern haben"
+      "emailIncorrect": "Bitte eine gültige E-Mail-Adresse eingeben",
+      "contactRequired": "Kontakt ist ein Pflichtfeld",
+      "contactIncorrect": "Die Telefonnummer muss 10 Ziffern haben"
     }
   },
   "site": {
     "heading": "Standort erstellen",
     "organisationName": "Name der Organisation",
     "siteName": "Standortname",
-    "ownerName": "Eigentümername",
+    "ownerName": "Name des Besitzers",
     "contact": "Kontakt",
     "email": "E-Mail",
     "address": "Adresse",
@@ -111,11 +114,11 @@
     "save": "Speichern",
     "errors": {
       "required": "Dies ist ein Pflichtfeld",
-      "len3To20": "Länge sollte zwischen 3 und 20 liegen",
-      "len3To8": "Länge sollte zwischen 3 und 8 liegen",
-      "contactIncorrect": "Kontaktnummer sollte 10 Ziffern haben",
-      "pinIncorrect": "Postleitzahl sollte 6 Ziffern haben",
-      "emailIncorrect": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+      "len3To20": "Die Länge sollte zwischen 3 und 20 liegen",
+      "len3To8": "Die Länge sollte zwischen 3 und 8 liegen",
+      "contactIncorrect": "Die Telefonnummer muss 10 Ziffern haben",
+      "pinIncorrect": "Postleitzahl muss aus 6 Ziffern bestehen",
+      "emailIncorrect": "Bitte eine gültige E-Mail-Adresse eingeben"
     }
   },
   "sites": {
@@ -124,14 +127,7 @@
     "create": "Standort erstellen",
     "search": "Standort suchen",
     "table": {
-      "headers": [
-        "Standortname",
-        "Eigentümer",
-        "E-Mail-Adresse",
-        "Kontakt",
-        "Organisation",
-        "Aktion"
-      ]
+      "headers": ["Standortname", "Besitzer", "E-Mail", "Kontakt", "Organisation", "Aktion"]
     }
   }
 }

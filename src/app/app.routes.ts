@@ -15,6 +15,7 @@ export const routes: Routes = [
     children: [
       { path: '', component: CrmAssignments, pathMatch: 'full' },
       { path: 'assignment', component: CrmAssignment },
+      { path: 'assignment/:id', component: CrmAssignment },
     ],
   },
   {

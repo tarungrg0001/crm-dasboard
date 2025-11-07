@@ -15,7 +15,7 @@
   <div class="header-container">
     <h2 class="label">{{ assignmentContent.createAssignment }}</h2>
   </div>
-  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <form (ngSubmit)="onSubmit()" [formGroup]="assignmentForm">
     <div class="form-container">
       <div class="status-group full-row">
         <label for="status"> {{ assignmentContent.status }} </label>
@@ -23,9 +23,9 @@
           <crm-badge-control
             id="status"
             [badgeType]="'oval'"
-            [badgeStatus]="assignment.status"
+            [badgeStatus]="assignmentForm.get('status')?.value"
             [large]="true"
-            [(ngModel)]="assignment.status"
+            formControlName="status"
             name="status"
           ></crm-badge-control>
           <crm-dropdown
@@ -36,73 +36,105 @@
         </div>
       </div>
 
-      <label for="assignedBy">{{ assignmentContent.assignedBy }}</label>
-      <input
-        id="assignedBy"
-        class="form-input"
-        required
-        [(ngModel)]="assignment.assignedBy"
-        name="assignedBy"
-      />
+      <label class="form-label" for="assignedBy">{{ assignmentContent.assignedBy }}</label>
+      <div class="input-wrapper">
+        <input
+          id="assignedBy"
+          class="form-input"
+          [ngClass]="{
+            danger:
+              assignmentForm.get('assignedBy')!.invalid &&
+              assignmentForm.get('assignedBy')!.touched,
+            success:
+              assignmentForm.get('assignedBy')!.valid &&
+              assignmentForm.get('assignedBy')!.touched &&
+              mode !== 'view'
+          }"
+          required
+          formControlName="assignedBy"
+          name="assignedBy"
+        />
+        @if( assignmentForm.get('assignedBy')!.invalid &&
+        assignmentForm.get('assignedBy')!.touched){
+        <small class="error">{{ assignmentContent.errors?.required }}</small>
+        }
+      </div>
 
-      <label for="assignedTo">{{ assignmentContent.assignedTo }}</label>
+      <label class="form-label" for="assignedTo">{{ assignmentContent.assignedTo }}</label>
       <div class="group">
         <crm-badge-control
           id="assignedTo"
           [badgeType]="'round'"
-          [badgeList]="assignment.assignedTo"
-          [(ngModel)]="assignment.assignedTo"
+          [badgeList]="assignmentForm.get('assignedTo')?.value"
+          formArrayName="assignedTo"
           name="assignedTo"
         ></crm-badge-control>
         <fa-icon class="plus-icon" [icon]="addIcon" (click)="setupGrid('assignedTo')"></fa-icon>
       </div>
 
       <label for="assignedOn">{{ assignmentContent.assignedOn }}</label>
-      <input
-        id="assignedOn"
-        type="date"
-        class="form-input"
-        required
-        [(ngModel)]="assignment.assignedOn"
-        name="assignedOn"
-      />
+      <div class="input-wrapper">
+        <input
+          id="assignedOn"
+          type="date"
+          class="form-input"
+          [ngClass]="{
+            danger:
+              assignmentForm.get('assignedOn')!.invalid &&
+              assignmentForm.get('assignedOn')!.touched,
+            success:
+              assignmentForm.get('assignedOn')!.valid &&
+              assignmentForm.get('assignedOn')!.touched &&
+              mode !== 'view'
+          }"
+          required
+          formControlName="assignedOn"
+          name="assignedOn"
+        />
+        @if( assignmentForm.get('assignedOn')!.invalid &&
+        assignmentForm.get('assignedOn')!.touched){
+        <small class="error">{{ assignmentContent.errors?.required }}</small>
+        }
+      </div>
 
       <label for="dueOn">{{ assignmentContent.dueOn }}</label>
-      <input
-        id="dueOn"
-        type="date"
-        class="form-input"
-        [(ngModel)]="assignment.dueOn"
-        name="dueOn"
-      />
+      <input id="dueOn" type="date" class="form-input" formControlName="dueOn" name="dueOn" />
 
       <div class="half-row">
         <label for="site">{{ assignmentContent.site }}</label>
         <div class="group">
           <crm-button-badge
-            [selectedValue]="assignment.site"
+            [selectedValue]="assignmentForm.get('site')?.value"
             id="site"
             name="site"
-            [(ngModel)]="assignment.site"
+            formControlName="site"
           ></crm-button-badge>
           <fa-icon class="plus-icon" [icon]="addIcon" (click)="setupGrid('site')"></fa-icon>
         </div>
       </div>
 
-      <div class="description-group full-row">
-        <label for="description">{{ assignmentContent.description }}</label>
-        <textarea
-          id="description"
-          class="description"
-          [(ngModel)]="assignment.description"
-          name="description"
-        ></textarea>
+      <div class="note-group full-row">
+        <label for="note">{{ assignmentContent.note }}</label>
+        <textarea id="note" class="note" formControlName="note" name="note"></textarea>
       </div>
     </div>
     <div class="footer button-group">
-      <button class="btn" routerLink="../">{{ assignmentContent.back }}</button>
-      <button class="btn btn-danger">{{ assignmentContent.reset }}</button>
-      <button class="btn btn-success" type="submit">{{ assignmentContent.save }}</button>
+      <button class="btn" type="button" routerLink="/assignments">
+        {{ assignmentContent.back }}
+      </button>
+      @if(mode !== 'view'){
+      <button class="btn btn-danger" type="reset" (click)="assignmentForm.reset()">
+        {{ assignmentContent.reset }}
+      </button>
+      <button
+        class="btn btn-success"
+        [ngClass]="assignmentForm.invalid ? 'disabled' : ''"
+        type="submit"
+        [disabled]="assignmentForm.invalid"
+      >
+        {{ assignmentContent.save }}
+      </button>
+      }
     </div>
   </form>
 </div>

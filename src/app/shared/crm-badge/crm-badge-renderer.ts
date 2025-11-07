@@ -13,6 +13,7 @@ import { NameInitials } from './name-initials.pipe';
 export class CrmBadgeRenderer implements ICellRendererAngularComp {
   public type!: string;
   public status!: string;
+  public tooltipContent: string = '';
   public list: string[] = [];
   public large = input<boolean>(false);
 
